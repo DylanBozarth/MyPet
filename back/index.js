@@ -1,6 +1,7 @@
 import app from './server.js'
 import mongodb from 'mongodb'
 import dotenv from 'dotenv'
+import RestaurantsDAO from './api/dao/restaurantsDAO.js'
 dotenv.config();
 const MongoClient = mongodb.MongoClient
 const port = process.env.PORT || 8000   // || is a fallback
@@ -18,6 +19,7 @@ MongoClient.connect(
         process.exit();
     })
     .then(async client => {
+        await RestaurantsDAO.injectDB(client)  // how we get reference to database
         app.listen(port, () => {
             console.log(`on port ${port}`)
         })
