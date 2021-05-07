@@ -22,14 +22,10 @@ function App() {
     <div>
       <nav className="navbar navbar-expand navbar-dark bg-dark">
         <a href="/restaurants" className="navbar-brand">
-          Restaurant Reviews
+         My Pet
         </a>
         <div className="navbar-nav mr-auto">
-          <li className="nav-item">
-            <Link to={"/restaurants"} className="nav-link">
-              Restaurants
-            </Link>
-          </li>
+          
           <li className="nav-item" >
             { user ? (
               <a onClick={logout} className="nav-link" style={{cursor:'pointer'}}>
