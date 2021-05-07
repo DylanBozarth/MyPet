@@ -4,6 +4,8 @@ import ReviewsController from './reviews.controller.js'
 const router = express.Router();
 
 router.route('/').get(RestaurantsController.apiGetRestaurants)
+router.route('/id/:id').get(RestaurantsController.apiGetRestaurantById)
+router.route('/cuisines').get(RestaurantsController.apiGetRestaurantCuisines)
 // this is where the view is set. use ?zipcode=000 to filter in browser
 router 
 .route('/review')
