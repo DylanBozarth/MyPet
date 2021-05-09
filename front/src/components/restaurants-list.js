@@ -86,8 +86,8 @@ const RestaurantsList = props => {
   };
 
   return (
-    <div>
-      <div className="row pb-1">
+    <div className="darkbg searchbars">
+      <div className="row ">
         <div className="input-group col-lg-4">
           <input
             type="text"
@@ -145,11 +145,12 @@ const RestaurantsList = props => {
 
         </div>
       </div>
+      {/* end of searhbars */}
       <div className="row">
         {restaurants.map((restaurant) => {
           const address = `${restaurant.address.building} ${restaurant.address.street}, ${restaurant.address.zipcode}`;
           return (
-            <div className="col-lg-4 pb-1">
+            <div className="col-lg-4 darkbg">
               <div className="card">
                 <div className="card-body">
                   <h5 className="card-title">{restaurant.name}</h5>

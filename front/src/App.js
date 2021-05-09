@@ -19,7 +19,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="darkbg">
       <nav className="navbar navbar-expand navbar-dark bg-dark">
         <a href="/restaurants" className="navbar-brand">
          My Pet
@@ -41,7 +41,7 @@ function App() {
         </div>
       </nav>
 
-      <div className="container mt-3">
+      <div className="container-fluid ">
         <Switch>
           <Route exact path={["/", "/restaurants"]} component={RestaurantsList} />
           <Route 
