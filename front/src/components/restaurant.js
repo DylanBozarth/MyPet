@@ -89,7 +89,7 @@ const Restaurant = props => {
              })
             ) : (
             <div className="col-sm-4">
-              <p>No reviews yet.</p>
+              <p>No comments yet.</p>
             </div>
             )}
 

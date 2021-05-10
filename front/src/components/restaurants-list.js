@@ -62,9 +62,9 @@ const RestaurantsList = props => {
   
 
   return (
-    <div className="darkbg searchbars">
-      <div className="row ">
-        <div className="input-group col-lg-4">
+    <div className="container text-center searchbars">
+      <div className="row">
+        <div className="input-group col-lg-6">
           <input
             type="text"
             className="form-control"
@@ -82,7 +82,7 @@ const RestaurantsList = props => {
             </button>
           </div>
         </div>
-        <div className="input-group col-lg-4">
+        <div className="input-group col-lg-6">
           <input
             type="text"
             className="form-control"

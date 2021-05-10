@@ -21,6 +21,7 @@ const Login = props => {
 
   return (
     <div className="submit-form">
+      Use whatever username and password you want, this is not a secure application.
       <div>
         <div className="form-group">
           <label htmlFor="user">Username</label>

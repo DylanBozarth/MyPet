@@ -30,5 +30,10 @@ class RestaurantDataService {
   }
 
 }
-
+// here's where we will fetch the pet data
+class getPetInfo {
+  getAllPets(data) {
+return http.get(`pets`)
+  }
+}
 export default new RestaurantDataService();
