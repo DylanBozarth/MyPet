@@ -32,8 +32,11 @@ class RestaurantDataService {
 }
 // here's where we will fetch the pet data
 class getPetInfo {
-  getAllPets(data) {
-return http.get(`pets`)
+  getAllPets(page) {
+return http.get(`pets?page=${page}`)
+  }
+  getPet(id) {
+    return http.get(`/pets?id=${id}`);
   }
 }
 export default new RestaurantDataService();
