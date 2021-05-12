@@ -8,7 +8,7 @@ export default class RestaurantsDAO {
       return
     }
     try {
-      restaurants = await conn.db(process.env.RESTREVIEWS_NS).collection("restaurants")
+      restaurants = await conn.db(process.env.RESTREVIEWS_NS).collection("my_pets")
     } catch (e) {
       console.error(
         `Unable to establish a collection handle in restaurantsDAO: ${e}`,
@@ -100,14 +100,6 @@ export default class RestaurantsDAO {
     }
   }
 
-  static async getCuisines() {
-    let cuisines = []
-    try {
-      cuisines = await restaurants.distinct("cuisine")
-      return cuisines
-    } catch (e) {
-      console.error(`Unable to get cuisines, ${e}`)
-      return cuisines
-    }
-  }
+ 
+  
 }
