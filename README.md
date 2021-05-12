@@ -1,4 +1,4 @@
 MERN APP, unfinished 
 https://www.youtube.com/watch?v=mrHNSanmqQ4
-1:26:47
+2:07;31
 fcc is lifes
