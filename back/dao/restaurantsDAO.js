@@ -103,3 +103,41 @@ export default class RestaurantsDAO {
  
   
 }
+
+
+{/* mongo stuff */}
+/* 
+// This function is the webhook's request handler.
+exports = async function(payload, response) {
+
+   
+    
+    const {petsPerPage = 20, page = 0 } = payload.query
+    const page = req.query.page ? parseInt(req.query.page, 10) : 0
+
+    let query = {}
+    if (payload.query.type) {
+     query = { "type": { $eq: payload.query.type } }
+    } else if (payload.query.name) {
+       query = { $text: { $search: payload.query.name } }
+    }
+const collection = context.services.get("mongodb-atlas").db("pets").collection("my_pets");
+    let petList = await collection.find().limit(20).toArray();
+    const { restaurantsList, totalNumRestaurants } = await RestaurantsDAO.getRestaurants({
+      filters,
+      page,
+      restaurantsPerPage,
+    })
+
+    let response = {
+      restaurants: restaurantsList,
+      page: page,
+      filters: filters,
+      entries_per_page: restaurantsPerPage,
+      total_results: totalNumRestaurants,
+    }
+  
+  
+  return  "Hello World!";
+};
+*/

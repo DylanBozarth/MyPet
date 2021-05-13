@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import RestaurantDataService from "../services/restuarant";
+import getPetInfo from "../services/pets";
 import { Link } from "react-router-dom";
 
 const RestaurantsList = props => {
@@ -25,7 +25,7 @@ const RestaurantsList = props => {
 
 
   const retrieveRestaurants = () => {
-    RestaurantDataService.getAll()
+    getPetInfo.getAll()
       .then(response => {
         console.log(response.data);
         setRestaurants(response.data.restaurants);
@@ -41,7 +41,7 @@ const RestaurantsList = props => {
  
 
   const find = (query, by) => {
-    RestaurantDataService.find(query, by)
+    getPetInfo.find(query, by)
       .then(response => {
         console.log(response.data);
         setRestaurants(response.data.restaurants);
