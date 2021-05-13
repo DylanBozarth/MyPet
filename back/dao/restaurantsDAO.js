@@ -110,34 +110,30 @@ export default class RestaurantsDAO {
 // This function is the webhook's request handler.
 exports = async function(payload, response) {
 
-   
-    
-    const {petsPerPage = 20, page = 0 } = payload.query
-    const page = req.query.page ? parseInt(req.query.page, 10) : 0
+  const {petsPerPage = 20, page = 0} = payload.query;
 
-    let query = {}
+  let query = {};
     if (payload.query.type) {
-     query = { "type": { $eq: payload.query.type } }
-    } else if (payload.query.name) {
-       query = { $text: { $search: payload.query.name } }
-    }
-const collection = context.services.get("mongodb-atlas").db("pets").collection("my_pets");
-    let petList = await collection.find().limit(20).toArray();
-    const { restaurantsList, totalNumRestaurants } = await RestaurantsDAO.getRestaurants({
-      filters,
-      page,
-      restaurantsPerPage,
-    })
+    query = { "address.zipcode": { $eq: payload.query.type } }
+  } else if (payload.query.name) {
+    query = { $text: { $search: payload.query.name } }
+  }
+    
+  const collection = context.services.get("mongodb-atlas").db("pets").collection("my_pets");
+  let restaurantsList = await collection.find(query).skip(page*petsPerPage).limit(petsPerPage).toArray()
 
-    let response = {
-      restaurants: restaurantsList,
-      page: page,
-      filters: filters,
-      entries_per_page: restaurantsPerPage,
-      total_results: totalNumRestaurants,
-    }
+  restaurantsList.forEach(restaurant => {
+    restaurant._id = restaurant._id.toString();
+  });
+
+  const responseData = {
+    restaurants: restaurantsList,
+    page: page.toString(),
+    filters: {},
+    entries_per_page: petsPerPage.toString(),
+    total_results: restaurantsList.length.toString(),
+  };
   
-  
-  return  "Hello World!";
+  return responseData;
 };
 */
