@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const RestaurantsList = props => {
   const [restaurants, setRestaurants] = useState([]);
   const [searchName, setSearchName ] = useState("");
-  const [searchZip, setSearchZip ] = useState("");
+  const [searchType, setSearchType ] = useState("");
 
   useEffect(() => {
     retrieveRestaurants();
@@ -17,9 +17,9 @@ const RestaurantsList = props => {
     setSearchName(searchName);
   };
 
-  const onChangeSearchZip = e => {
-    const searchZip = e.target.value;
-    setSearchZip(searchZip);
+  const onChangeSearchType = e => {
+    const searchType = e.target.value;
+    setSearchType(searchType);
   };
 
 
@@ -55,8 +55,8 @@ const RestaurantsList = props => {
     find(searchName, "name")
   };
 
-  const findByZip = () => {
-    find(searchZip, "zipcode")
+  const findByType = () => {
+    find(searchType, "type")
   };
 
   
@@ -86,15 +86,15 @@ const RestaurantsList = props => {
           <input
             type="text"
             className="form-control"
-            placeholder="Search by zip"
-            value={searchZip}
-            onChange={onChangeSearchZip}
+            placeholder="Search by Type"
+            value={searchType}
+            onChange={onChangeSearchType}
           />
           <div className="input-group-append">
             <button
               className="btn btn-outline-secondary"
               type="button"
-              onClick={findByZip}
+              onClick={findByType}
             >
               Search
             </button>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import RestaurantDataService from "../services/restuarant";
+import getAllPets from "../services/pets";
 import { Link } from "react-router-dom";
 
 const AddReview = props => {
@@ -29,7 +29,7 @@ const AddReview = props => {
 
     if (editing) {
       data.review_id = props.location.state.currentReview._id
-      RestaurantDataService.updateReview(data)
+      getAllPets.updateReview(data)
         .then(response => {
           setSubmitted(true);
           console.log(response.data);
@@ -38,7 +38,7 @@ const AddReview = props => {
           console.log(e);
         });
     } else {
-      RestaurantDataService.createReview(data)
+      getAllPets.createReview(data)
         .then(response => {
           setSubmitted(true);
           console.log(response.data);

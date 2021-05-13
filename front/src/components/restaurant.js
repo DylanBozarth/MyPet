@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import RestaurantDataService from "../services/restuarant";
+import getAllPets from "../services/pets";
 import { Link } from "react-router-dom";
 
 const Restaurant = props => {
@@ -13,7 +13,7 @@ const Restaurant = props => {
   const [restaurant, setRestaurant] = useState(initialRestaurantState);
 
   const getRestaurant = id => {
-    RestaurantDataService.get(id)
+    getAllPets.get(id)
       .then(response => {
         setRestaurant(response.data);
         console.log(response.data);
@@ -28,7 +28,7 @@ const Restaurant = props => {
   }, [props.match.params.id]);
 
   const deleteReview = (reviewId, index) => {
-    RestaurantDataService.deleteReview(reviewId, props.user.id)
+    getAllPets.deleteReview(reviewId, props.user.id)
       .then(response => {
         setRestaurant((prevState) => {
           prevState.reviews.splice(index, 1)
