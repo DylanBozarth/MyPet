@@ -24,8 +24,8 @@ const RestaurantsList = props => {
   async function getPetInfo() {
     const response = await fetch('https://us-west-2.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/my_pets-dbdsd/service/pets/incoming_webhook/petswebhook');
     const json = await response.json();
-    console.log(json); console.log('getpetinfo')
-     setPets(response.pets);
+    console.log(json); 
+     setPets(json.pets);
 }
 
 
@@ -56,15 +56,15 @@ const RestaurantsList = props => {
   };
   if (pets) {
     return (
-<div className="row darkbg">
+<div className="row ">
         {pets.map((restaurant) => {
 
           return (
-            <div className="col-lg-4 darkbg">
-              <div className="card">
+            <div className="col-lg-4 ">
+              <div className="card" key={pets.pet}>
                 <div className="card-body">
-                  <h5 className="card-title">{restaurant.name}</h5>
-                  
+                  <h5 className="card-title">{pets.pet}</h5>
+                  <h6 className="card-title">{pets.breed}</h6>
                   <div className="row">
                   <Link to={"/restaurants/"+restaurant._id} className="btn btn-primary col-lg-5 mx-1 mb-1">
                     View Comments
