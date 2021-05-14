@@ -9,7 +9,12 @@ const RestaurantsList = props => {
 
   useEffect(() => {
     retrieveRestaurants();
+    fetch("https://us-west-2.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/my_pets-dbdsd/service/pets/incoming_webhook/petswebhook") // Call the fetch function passing the url of the API as a parameter
+    .then((resp) => resp.json()) // Transform the data into json
+    .then((resp) => {
     
+      console.log(resp);
+    });
   }, []);
 
   const onChangeSearchName = e => {
@@ -106,16 +111,13 @@ const RestaurantsList = props => {
       {/* end of searhbars */}
       <div className="row darkbg">
         {restaurants.map((restaurant) => {
-          const address = `${restaurant.address.building} ${restaurant.address.street}, ${restaurant.address.zipcode}`;
+
           return (
             <div className="col-lg-4 darkbg">
               <div className="card">
                 <div className="card-body">
                   <h5 className="card-title">{restaurant.name}</h5>
-                  <p className="card-text">
-                    <strong>Cuisine: </strong>{restaurant.cuisine}<br/>
-                    <strong>Address: </strong>{address}
-                  </p>
+                  
                   <div className="row">
                   <Link to={"/restaurants/"+restaurant._id} className="btn btn-primary col-lg-5 mx-1 mb-1">
                     View Comments

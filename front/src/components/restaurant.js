@@ -6,8 +6,7 @@ const Restaurant = props => {
   const initialRestaurantState = {
     id: null,
     name: "",
-    address: {},
-    cuisine: "",
+    type: "",
     reviews: []
   };
   const [restaurant, setRestaurant] = useState(initialRestaurantState);
@@ -25,6 +24,7 @@ const Restaurant = props => {
 
   useEffect(() => {
     getRestaurant(props.match.params.id);
+    
   }, [props.match.params.id]);
 
   const deleteReview = (reviewId, index) => {
