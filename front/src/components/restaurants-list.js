@@ -67,14 +67,14 @@ const RestaurantsList = props => {
         <div className="input-group col-lg-6">
           <input
             type="text"
-            className="form-control"
+            className="form-control white"
             placeholder="Search by name"
             value={searchName}
             onChange={onChangeSearchName}
           />
           <div className="input-group-append">
             <button
-              className="btn btn-outline-secondary"
+              className="btn  btn-success"
               type="button"
               onClick={findByName}
             >
@@ -85,14 +85,14 @@ const RestaurantsList = props => {
         <div className="input-group col-lg-6">
           <input
             type="text"
-            className="form-control"
+            className="form-control white"
             placeholder="Search by Type"
             value={searchType}
             onChange={onChangeSearchType}
           />
           <div className="input-group-append">
             <button
-              className="btn btn-outline-secondary"
+              className="btn btn-success"
               type="button"
               onClick={findByType}
             >

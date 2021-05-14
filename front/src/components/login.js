@@ -27,7 +27,7 @@ const Login = props => {
           <label htmlFor="user">Username</label>
           <input
             type="text"
-            className="form-control"
+            className="form-control white"
             id="name"
             required
             value={user.name}
@@ -40,7 +40,7 @@ const Login = props => {
           <label htmlFor="id">ID</label>
           <input
             type="text"
-            className="form-control"
+            className="form-control white"
             id="id"
             required
             value={user.id}
