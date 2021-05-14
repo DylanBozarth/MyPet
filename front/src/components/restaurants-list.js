@@ -1,20 +1,15 @@
 import React, { useState, useEffect } from "react";
-import getPetInfo from "../services/pets";
+//import getPetInfo from "../services/pets";
 import { Link } from "react-router-dom";
 
 const RestaurantsList = props => {
-  const [restaurants, setRestaurants] = useState([]);
+  const [pets, setPets] = useState([]);
   const [searchName, setSearchName ] = useState("");
   const [searchType, setSearchType ] = useState("");
 
   useEffect(() => {
-    retrieveRestaurants();
-    fetch("https://us-west-2.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/my_pets-dbdsd/service/pets/incoming_webhook/petswebhook") // Call the fetch function passing the url of the API as a parameter
-    .then((resp) => resp.json()) // Transform the data into json
-    .then((resp) => {
-    
-      console.log(resp);
-    });
+    getPetInfo();
+   
   }, []);
 
   const onChangeSearchName = e => {
@@ -26,20 +21,16 @@ const RestaurantsList = props => {
     const searchType = e.target.value;
     setSearchType(searchType);
   };
+  async function getPetInfo() {
+    const response = await fetch('https://us-west-2.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/my_pets-dbdsd/service/pets/incoming_webhook/petswebhook');
+    const json = await response.json();
+    console.log(json); console.log('getpetinfo')
+     setPets(response.pets);
+}
 
 
 
-  const retrieveRestaurants = () => {
-    getPetInfo.getAll()
-      .then(response => {
-        console.log(response.data);
-        setRestaurants(response.data.restaurants);
-        
-      })
-      .catch(e => {
-        console.log(e);
-      });
-  };
+ 
 
 
 
@@ -49,7 +40,7 @@ const RestaurantsList = props => {
     getPetInfo.find(query, by)
       .then(response => {
         console.log(response.data);
-        setRestaurants(response.data.restaurants);
+        setPets(response.data.restaurants);
       })
       .catch(e => {
         console.log(e);
@@ -63,54 +54,10 @@ const RestaurantsList = props => {
   const findByType = () => {
     find(searchType, "type")
   };
-
-  
-
-  return (
-    <div className="container text-center searchbars">
-      <div className="row">
-        <div className="input-group col-lg-6">
-          <input
-            type="text"
-            className="form-control white"
-            placeholder="Search by name"
-            value={searchName}
-            onChange={onChangeSearchName}
-          />
-          <div className="input-group-append">
-            <button
-              className="btn  btn-success"
-              type="button"
-              onClick={findByName}
-            >
-              Search
-            </button>
-          </div>
-        </div>
-        <div className="input-group col-lg-6">
-          <input
-            type="text"
-            className="form-control white"
-            placeholder="Search by Type"
-            value={searchType}
-            onChange={onChangeSearchType}
-          />
-          <div className="input-group-append">
-            <button
-              className="btn btn-success"
-              type="button"
-              onClick={findByType}
-            >
-              Search
-            </button>
-          </div>
-        </div>
-        
-
-      </div>
-      {/* end of searhbars */}
-      <div className="row darkbg">
-        {restaurants.map((restaurant) => {
+  if (pets) {
+    return (
+<div className="row darkbg">
+        {pets.map((restaurant) => {
 
           return (
             <div className="col-lg-4 darkbg">
@@ -132,8 +79,15 @@ const RestaurantsList = props => {
 
 
       </div>
-    </div>
-  );
-};
+    )
+  }
+  else {
+    return ( 
+      <div>App is loading</div>
+    )
+  }
+} 
+  
+   
 
 export default RestaurantsList;

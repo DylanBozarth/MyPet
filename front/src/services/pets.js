@@ -1,4 +1,4 @@
-import http from "../http-common";
+{/*import http from "../http-common";
 // all of the node stuff here
 // here's where we will fetch the pet data
 class getPetInfo {
@@ -10,3 +10,5 @@ return http.get(`pets?page=${page}`)
   }
 }
 export default new getPetInfo();
+
+*/}
