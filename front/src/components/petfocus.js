@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import getAllPets from "../services/pets";
 import { Link } from "react-router-dom";
 
-const Restaurant = props => {
+const PetFocus = props => {
   const initialRestaurantState = {
     id: null,
     name: "",
@@ -106,4 +106,4 @@ const Restaurant = props => {
   );
 };
 
-export default Restaurant;
+export default PetFocus;

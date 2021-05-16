@@ -3,9 +3,9 @@ import { Switch, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import AddReview from "./components/add-review";
-import Restaurant from "./components/restaurant";
 import RestaurantsList from "./components/pet-list";
 import Login from "./components/login";
+import PetFocus from "./components/petfocus";
 
 function App() {
   const [user, setUser] = React.useState(null);
@@ -58,7 +58,7 @@ function App() {
           <Route 
             path="/restaurants/:id"
             render={(props) => (
-              <Restaurant {...props} user={user} />
+              <PetFocus {...props} user={user} />
             )}
           />
           <Route 

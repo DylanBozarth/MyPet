@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import { Link } from "react-router-dom";
+import { Searchbars } from "./searchbars";
 const RestaurantsList = props => {
   const [pets, setPets] = useState([]);
   const [searchName, setSearchName ] = useState("");
@@ -58,15 +59,17 @@ const RestaurantsList = props => {
   if (pets) {
     return (
 <div className="row ">
+  <Searchbars />
         {pets.map((pets) => {
 
           return (
             <div className="col-lg-4 ">
+              
               <div className="card" key={pets.id}>
                 <div className="card-body">
                   <h5 className="card-title">{pets.pet}</h5>
                   <h6 className="card-title">{pets.breed}</h6>
-                  <img src={pets.image} alt={pets.pet}></img>
+                  <img src={pets.image} className="img-fluid" alt={pets.pet}></img>
                   <div className="row">
                   <Link to={"/restaurants/"+pets._id} className="btn btn-primary col-lg-5 mx-1 mb-1">
                     View Comments
