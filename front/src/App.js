@@ -50,7 +50,7 @@ function App() {
         <Switch>
           <Route exact path={["/", "/restaurants"]} component={RestaurantsList} />
           <Route 
-            path="/restaurants/:id/review"
+            path="/pet/:id/review"
             render={(props) => (
               <AddReview {...props} user={user} />
             )}

@@ -21,7 +21,7 @@ const RestaurantsList = props => {
     const searchType = e.target.value;
     setSearchType(searchType);
   };
-{/*
+
   async function getPetInfo() {
     const response = await fetch('https://us-west-2.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/my_pets-dbdsd/service/pets/incoming_webhook/petswebhook');
     const json = await response.json();
@@ -30,7 +30,7 @@ const RestaurantsList = props => {
      console.log('this is pets')
      console.log(pets) 
 }
-*/}
+/*
 const getPetInfo = () => {
   getAll.getAll()
     .then(response => {
@@ -42,7 +42,7 @@ const getPetInfo = () => {
       console.log(e);
     });
 };
-
+*/
  
 
 

@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
 import getPet from "../services/pets";
 import { Link } from "react-router-dom";
-
+import http from "../http-common";
 const PetFocus = props => {
-  const initialRestaurantState = {
+  const initialState = {
     id: null,
     name: "",
     type: "",
     reviews: []
   };
-  const [pet, setPet] = useState(initialRestaurantState);
+  const [pet, setPet] = useState(initialState);
 
   const getRestaurant = id => {
-    getPet.get(id)
+   getPetsId(id)
       .then(response => {
         setPet(response.data);
         console.log(response.data);
@@ -21,7 +21,10 @@ const PetFocus = props => {
         console.log(e);
       });
   };
-
+  const getPetsId = (id) => {
+    return http.get(`/pets?id=${id}`);
+    
+  }
   useEffect(() => {
     getRestaurant(props.match.params.id);
     
@@ -53,7 +56,7 @@ const PetFocus = props => {
           <Link to={"/" } className="btn btn-primary">
             Back
           </Link>
-          <Link to={"/restaurants/" + props.match.params.id + "/review"} className="btn btn-primary">
+          <Link to={"/pet" + props.match.params.id + "/review"} className="btn btn-primary">
             Add Review
           </Link>
           
@@ -74,7 +77,7 @@ const PetFocus = props => {
                           <div className="row">
                             <a onClick={() => deleteReview(review._id, index)} className="btn btn-primary col-lg-5 mx-1 mb-1">Delete</a>
                             <Link to={{
-                              pathname: "/restaurants/" + props.match.params.id + "/review",
+                              pathname: "/pet/" + props.match.params.id + "/review",
                               state: {
                                 currentReview: review
                               }
@@ -88,7 +91,7 @@ const PetFocus = props => {
              })
             ) : (
             <div className="col-sm-4">
-              <p>No comments yet.</p>
+              <p>No comments yet. maybe</p>
             </div>
             )}
 

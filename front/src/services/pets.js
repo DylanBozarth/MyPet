@@ -7,7 +7,7 @@ class getPetInfoService {
   }
 
   get(id) {
-    return http.get(`/restaurant?id=${id}`);
+    return http.get(`/pets?id=${id}`);
   }
 
   find(query, by = "name", page = 0) {
