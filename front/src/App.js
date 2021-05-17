@@ -56,7 +56,7 @@ function App() {
             )}
           />
           <Route 
-            path="/restaurants/:id"
+            path="/pets/:id"
             render={(props) => (
               <PetFocus {...props} user={user} />
             )}

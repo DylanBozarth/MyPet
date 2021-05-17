@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import getAllPets from "../services/pets";
+import getPet from "../services/pets";
 import { Link } from "react-router-dom";
 
 const PetFocus = props => {
@@ -9,12 +9,12 @@ const PetFocus = props => {
     type: "",
     reviews: []
   };
-  const [restaurant, setRestaurant] = useState(initialRestaurantState);
+  const [pet, setPet] = useState(initialRestaurantState);
 
   const getRestaurant = id => {
-    getAllPets.get(id)
+    getPet.get(id)
       .then(response => {
-        setRestaurant(response.data);
+        setPet(response.data);
         console.log(response.data);
       })
       .catch(e => {
@@ -28,9 +28,9 @@ const PetFocus = props => {
   }, [props.match.params.id]);
 
   const deleteReview = (reviewId, index) => {
-    getAllPets.deleteReview(reviewId, props.user.id)
+    getPet.deleteReview(reviewId, props.user.id)
       .then(response => {
-        setRestaurant((prevState) => {
+        setPet((prevState) => {
           prevState.reviews.splice(index, 1)
           return({
             ...prevState
@@ -44,12 +44,11 @@ const PetFocus = props => {
 
   return (
     <div>
-      {restaurant ? (
+      {pet ? (
         <div>
-          <h5>{restaurant.name}</h5>
+          <h5>{pet.name}</h5>
           <p>
-            <strong>Cuisine: </strong>{restaurant.cuisine}<br/>
-            <strong>Address: </strong>{restaurant.address.building} {restaurant.address.street}, {restaurant.address.zipcode}
+           Description
           </p>
           <Link to={"/" } className="btn btn-primary">
             Back
@@ -60,8 +59,8 @@ const PetFocus = props => {
           
           <h4> Reviews </h4>
           <div className="row">
-            {restaurant.reviews.length > 0 ? (
-             restaurant.reviews.map((review, index) => {
+            {pet.reviews.length > 0 ? (
+             pet.reviews.map((review, index) => {
                return (
                  <div className="col-lg-4 pb-1" key={index}>
                    <div className="card">

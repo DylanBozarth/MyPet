@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import getAll from '../services/pets';
 import { Link } from "react-router-dom";
 import { Searchbars } from "./searchbars";
 const RestaurantsList = props => {
@@ -21,6 +21,7 @@ const RestaurantsList = props => {
     const searchType = e.target.value;
     setSearchType(searchType);
   };
+{/*
   async function getPetInfo() {
     const response = await fetch('https://us-west-2.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/my_pets-dbdsd/service/pets/incoming_webhook/petswebhook');
     const json = await response.json();
@@ -29,8 +30,18 @@ const RestaurantsList = props => {
      console.log('this is pets')
      console.log(pets) 
 }
-
-
+*/}
+const getPetInfo = () => {
+  getAll.getAll()
+    .then(response => {
+      console.log(response.data);
+      setPets(response.data.restaurants);
+      
+    })
+    .catch(e => {
+      console.log(e);
+    });
+};
 
  
 
@@ -71,7 +82,7 @@ const RestaurantsList = props => {
                   <h6 className="card-title">{pets.breed}</h6>
                   <img src={pets.image} className="img-fluid" alt={pets.pet}></img>
                   <div className="row">
-                  <Link to={"/restaurants/"+pets._id} className="btn btn-primary col-lg-5 mx-1 mb-1">
+                  <Link to={"/pets/"+pets._id} className="btn btn-primary col-lg-5 mx-1 mb-1">
                     View Comments
                   </Link>
                  <button className="btn btn-primary col-lg-5 mx-1 mb-1">Give like</button>
