@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import getAll from '../services/pets';
+import getPetInfoService from '../services/pets';
 import { Link } from "react-router-dom";
 import { Searchbars } from "./searchbars";
 const RestaurantsList = props => {
@@ -30,9 +30,9 @@ const RestaurantsList = props => {
      console.log('this is pets')
      console.log(pets) 
 }
-/*
+{/*
 const getPetInfo = () => {
-  getAll.getAll()
+  getPetInfoService.getAll()
     .then(response => {
       console.log(response.data);
       setPets(response.data.restaurants);
@@ -42,7 +42,7 @@ const getPetInfo = () => {
       console.log(e);
     });
 };
-*/
+*/}
  
 
 
@@ -76,16 +76,16 @@ const getPetInfo = () => {
           return (
             <div className="col-lg-4 ">
               
-              <div className="card" key={pets.id}>
+              <div className="card"  key={pets.name}>
                 <div className="card-body">
                   <h5 className="card-title">{pets.pet}</h5>
-                  <h6 className="card-title">{pets.breed}</h6>
+                  <h6 className="card-title">{pets.breed}</h6><button className="btn btn-primary col-lg-5 mx-1 mb-1">Give like</button><p>{pets.likes} People like this</p>
                   <img src={pets.image} className="img-fluid" alt={pets.pet}></img>
                   <div className="row">
                   <Link to={"/pets/"+pets._id} className="btn btn-primary col-lg-5 mx-1 mb-1">
                     View Comments
                   </Link>
-                 <button className="btn btn-primary col-lg-5 mx-1 mb-1">Give like</button>
+                 
                   </div>
                 </div>
               </div>

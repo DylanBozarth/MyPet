@@ -22,7 +22,7 @@ const PetFocus = props => {
       });
   };
   const getPetsId = (id) => {
-    return http.get(`/pets?id=${id}`);
+    return http.get(`https://us-west-2.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/my_pets-dbdsd/service/pets/incoming_webhook/petswebhook/pets?id=${id}`);
     
   }
   useEffect(() => {
