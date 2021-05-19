@@ -26,7 +26,7 @@ const PetFocus = props => {
     
   }
   useEffect(() => {
-    getRestaurant(props.match.params.id);
+    getPetsId(props.match.params.id);
     
   }, [props.match.params.id]);
 

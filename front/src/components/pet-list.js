@@ -29,6 +29,7 @@ const RestaurantsList = props => {
      setPets(json.pets);
     
 }
+
 {/*
 const getPetInfo = () => {
   getPetInfoService.getAll()
@@ -80,6 +81,7 @@ const getPetInfo = () => {
                   <h5 className="card-title">{pets.pet}</h5>
                   <h6 className="card-title">{pets.breed}</h6><button className="btn btn-primary col-lg-5 mx-1 mb-1">Give like</button><p>{parseInt(pets.likes, 0)} People like this</p>
                   <img src={pets.image} className="img-fluid" alt={pets.pet}></img>
+                  <p>{pets.desc}</p>
                   <div className="row">
                   <Link to={"/pets/"+pets._id} className="btn btn-primary col-lg-5 mx-1 mb-1">
                     View Comments
