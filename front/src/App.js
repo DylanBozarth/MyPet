@@ -6,6 +6,7 @@ import AddReview from "./components/add-review";
 import RestaurantsList from "./components/pet-list";
 import Login from "./components/login";
 import PetFocus from "./components/petfocus";
+import { Submit } from "./components/submit";
 
 function App() {
   const [user, setUser] = React.useState(null);
@@ -70,6 +71,12 @@ function App() {
             path="/login"
             render={(props) => (
               <Login {...props} login={login} />
+            )}
+          />
+          <Route 
+            path="/submit"
+            render={(props) => (
+              <Submit {...props} login={Submit} />
             )}
           />
         </Switch>
