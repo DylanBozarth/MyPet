@@ -27,8 +27,7 @@ const RestaurantsList = props => {
     const json = await response.json();
     console.log(json); 
      setPets(json.pets);
-     console.log('this is pets')
-     console.log(pets) 
+    
 }
 {/*
 const getPetInfo = () => {

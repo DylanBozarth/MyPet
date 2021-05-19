@@ -25,7 +25,12 @@ function App() {
          My Pet
         </a>
         <div className="navbar-nav mr-auto">
-          
+        <li className="nav-item" >
+          <Link to="/submit">
+        <div className="nav-link" >
+             Submit your pet
+            </div></Link>
+          </li>
           <li className="nav-item" >
             { user ? (
               <div className="row">
