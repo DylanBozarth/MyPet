@@ -22,9 +22,9 @@ function App() {
 
   return (
     <div className="container">
-      <nav className=" row">
+      <div className=" row">
         <div className="col-sm-4">
-        <Link href="/pets" className="navbar-brand">
+        <Link to="/pets" className="nav-link">
           My Pet
         </Link>
 </div>
@@ -55,7 +55,7 @@ function App() {
             </div>
           )}
         </ul>
-      </nav>
+      </div>
 
       {/* end of navigation /
        */}

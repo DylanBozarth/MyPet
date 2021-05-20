@@ -94,8 +94,8 @@ const getPetInfo = () => {
                     className="img-fluid petimage"
                     alt={pets.pet}
                   ></img>
-                  Fun fact about {pets.pet}:
-                  <p>{pets.desc}</p>
+                  <p className="card-text-title">Fun fact about {pets.pet}:</p>
+                  <p className="card-text">{pets.desc}</p>
                   <div className="row">
          {/*} <Link
                       to={"/pets/" + pets._id}
