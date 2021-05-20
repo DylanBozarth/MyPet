@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export const Submit = () => {
+export const Submit = (props) => {
   const [petName, setPetName] = useState("");
   const [petBreed, setPetBreed] = useState("");
   const [petImage, setPetImage] = useState("");
@@ -21,8 +21,9 @@ export const Submit = () => {
     e.preventDefault();
    //('https://us-west-2.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/my_pets-dbdsd/service/pets/incoming_webhook/addnewpet')
     let _data = {
-      title: "foo",
-      body: petName
+      name: petName,
+      body: petName,
+     
     }
     
     fetch('https://us-west-2.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/my_pets-dbdsd/service/pets/incoming_webhook/addnewpet'
@@ -35,6 +36,7 @@ export const Submit = () => {
     .then(json => console.log(json));
   };
   return (
+    (props.user) ?
     <div>
       Submit your own
       <div
@@ -59,6 +61,8 @@ export const Submit = () => {
         ></input>
         <button onClick={(e) => submitPet(e)}>Submit</button>
       </div>
-    </div>
+    </div> :
+    <div>Log in bro</div>
   );
 };
+
