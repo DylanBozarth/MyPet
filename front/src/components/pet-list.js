@@ -1,36 +1,43 @@
 import React, { useState, useEffect } from "react";
-import getPetInfoService from '../services/pets';
+import getPetInfoService from "../services/pets";
 import { Link } from "react-router-dom";
 import { Searchbars } from "./searchbars";
-const RestaurantsList = props => {
+const RestaurantsList = (props) => {
   const [pets, setPets] = useState([]);
-  const [searchName, setSearchName ] = useState("");
-  const [searchType, setSearchType ] = useState("");
-
+  const [searchName, setSearchName] = useState("");
+  const [searchType, setSearchType] = useState("");
+  const [likeCount, setLikeCount] = useState("");
   useEffect(() => {
     getPetInfo();
-   
+    addLike();
   }, []);
 
-  const onChangeSearchName = e => {
+  const onChangeSearchName = (e) => {
     const searchName = e.target.value;
     setSearchName(searchName);
   };
 
-  const onChangeSearchType = e => {
+  const onChangeSearchType = (e) => {
     const searchType = e.target.value;
     setSearchType(searchType);
   };
 
   async function getPetInfo() {
-    const response = await fetch('https://us-west-2.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/my_pets-dbdsd/service/pets/incoming_webhook/petswebhook');
+    const response = await fetch(
+      "https://us-west-2.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/my_pets-dbdsd/service/pets/incoming_webhook/petswebhook"
+    );
     const json = await response.json();
-    console.log(json); 
-     setPets(json.pets);
-    
-}
-
-{/*
+    console.log(json);
+    setPets(json.pets);
+  }
+  const addLike = () => {
+    let likes = parseInt(pets.likes, 0);
+    console.log(likes)
+    setLikeCount(likes += 1);
+    console.log(likes + ' after add');
+  };
+  {
+    /*
 const getPetInfo = () => {
   getPetInfoService.getAll()
     .then(response => {
@@ -42,69 +49,70 @@ const getPetInfo = () => {
       console.log(e);
     });
 };
-*/}
- 
-
-
-
- 
+*/
+  }
 
   const find = (query, by) => {
-    getPetInfo.find(query, by)
-      .then(response => {
+    getPetInfo
+      .find(query, by)
+      .then((response) => {
         console.log(response.data);
         setPets(response.data.restaurants);
       })
-      .catch(e => {
+      .catch((e) => {
         console.log(e);
       });
   };
 
   const findByName = () => {
-    find(searchName, "name")
+    find(searchName, "name");
   };
 
   const findByType = () => {
-    find(searchType, "type")
+    find(searchType, "type");
   };
   if (pets) {
     return (
-<div className="row ">
-  <Searchbars />
+      <div className="row ">
+        <Searchbars />
         {pets.map((pets) => {
-
           return (
             <div className="col-lg-4 ">
-              
-              <div className="card"  key={pets.name}>
+              <div className="card" key={pets.name}>
                 <div className="card-body">
                   <h5 className="card-title">{pets.pet}</h5>
-                  <h6 className="card-title">{pets.breed}</h6><button className="btn btn-primary col-lg-5 mx-1 mb-1">Give like</button><p>{parseInt(pets.likes, 0)} People like this</p>
-                  <img src={pets.image} className="img-fluid" alt={pets.pet}></img>
+                  <h6 className="card-title">{pets.breed}</h6>
+                  <button
+                    className="btn btn-primary col-lg-5 mx-1 mb-1"
+                    onClick={() => addLike()}
+                  >
+                    Give like
+                  </button>
+                  <p className="likesp">{parseInt(pets.likes, 0)} People like this</p>
+                  <img
+                    src={pets.image}
+                    className="img-fluid"
+                    alt={pets.pet}
+                  ></img>
                   <p>{pets.desc}</p>
                   <div className="row">
-                  <Link to={"/pets/"+pets._id} className="btn btn-primary col-lg-5 mx-1 mb-1">
-                    View Comments
-                  </Link>
-                 
+                    <Link
+                      to={"/pets/" + pets._id}
+                      className="btn btn-primary col-lg-5 mx-1 mb-1"
+                    >
+                      View Comments
+                    </Link>
                   </div>
                 </div>
               </div>
             </div>
           );
         })}
-
-
       </div>
-    )
+    );
+  } else {
+    return <div>App is loading</div>;
   }
-  else {
-    return ( 
-      <div>App is loading</div>
-    )
-  }
-} 
-  
-   
+};
 
 export default RestaurantsList;
