@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
+import "./App.scss";
 import AddReview from "./components/add-review";
 import RestaurantsList from "./components/pet-list";
 import Login from "./components/login";
@@ -21,18 +21,18 @@ function App() {
   }
 
   return (
-    <div className="container">
-      <div className=" row">
+    <div className="container-fluid">
+      <div className=" row nav-bar">
         <div className="col-sm-4">
-        <Link to="/pets" className="nav-link">
-          My Pet
+        <Link to="/pets" className="">
+        <p className="nav-link"> My Pet</p>
         </Link>
 </div>
         
 
         <div className="col-sm-4">
-          <Link className="nav-link" to="/submit">
-            Submit your own!
+          <Link className="" to="/submit">
+            <p className="nav-link">Submit your own!</p>
           </Link>
         </div>
         <ul className="navbar-nav col-sm-4">
@@ -49,8 +49,8 @@ function App() {
             </div>
           ) : (
             <div className="col-sm-4 ">
-              <Link to={"/login"} className="nav-link">
-                Login
+              <Link to={"/login"} className="">
+              <p className="nav-link"> Login</p>
               </Link>
             </div>
           )}
@@ -59,7 +59,7 @@ function App() {
 
       {/* end of navigation /
        */}
-      <div className="container-fluid ">
+      <div className="container-fluid  ">
         <Switch>
           <Route exact path={["/", "/pets"]} component={RestaurantsList} />
           <Route
@@ -80,6 +80,7 @@ function App() {
           />
         </Switch>
       </div>
+      <div className="footer text-center">Copywrite</div>
     </div>
   );
 }
