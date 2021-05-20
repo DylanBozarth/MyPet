@@ -80,8 +80,8 @@ const getPetInfo = () => {
             <div className="col-lg-4 text-center">
               <div className="card" key={pets.name}>
                 <div className="card-body">
-                  <h5 className="card-title">{pets.pet}</h5>
-                  <h6 className="card-title">{pets.breed}</h6>
+                  <h3 className="card-title">{pets.pet}</h3>
+                  <h4 className="card-title">{pets.breed}</h4>
                   
                   <img
                     src={pets.image}

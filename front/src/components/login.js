@@ -20,7 +20,7 @@ const Login = props => {
   }
 
   return (
-    <div className="submit-form">
+    <div className="submit-form col-sm-4">
       Use whatever username and password you want, this is not a secure application.
       <div>
         <div className="form-group">

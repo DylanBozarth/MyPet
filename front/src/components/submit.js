@@ -36,33 +36,39 @@ export const Submit = (props) => {
     .then(json => console.log(json));
   };
   return (
-    (props.user !== null) ?
-    <div>
+    <div className="row">
+      
+    {(props.user !== null) ?
+    <div className="col-sm-6">
       Submit your own
       <div
       >
-        <label>Your pet's name</label>
+        <label>Your pet's name</label> <br />
         <input
           placeholder="name"
           value={petName}
           onChange={changePetName}
         ></input>
-        <label>Your pet's breed</label>
+        <br />
+        <label>Your pet's breed</label>  <br />
         <input
           placeholder="breed"
           value={petBreed}
           onChange={changeBreedType}
         ></input>
-        <label>An image of your pet</label>
+        <br />
+        <label>An image of your pet</label> <br />
         <input
           placeholder="image URL"
           value={petImage}
           onChange={changePetImage}
         ></input>
+        <br />
         <button onClick={(e) => submitPet(e)}>Submit</button>
       </div>
+     
     </div> :
-    <div>Log in bro</div>
+    <div>Log in bro</div>}<div className="col-sm-6">Privacy Notice</div></div>
   );
 };
 

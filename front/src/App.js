@@ -24,37 +24,37 @@ function App() {
     <div className="container-fluid">
       <div className=" row nav-bar">
         <div className="col-sm-4">
-        <Link to="/pets" className="">
-        <p className="nav-link"> My Pet</p>
+        <Link to="/pets" className="navbox">
+        <p className="navtext"> My Pet</p>
         </Link>
 </div>
         
 
         <div className="col-sm-4">
-          <Link className="" to="/submit">
-            <p className="nav-link">Submit your own!</p>
+          <Link className="navbox" to="/submit">
+            <p className="navtext">Submit your own!</p>
           </Link>
         </div>
-        <ul className="navbar-nav col-sm-4">
+        <div className="col-sm-4">
           {user ? (
-            <div className="">
+            <div className="navbox">
               <a
                 onClick={logout}
-                className="nav-link"
+                className="navtext text-right"
                 style={{ cursor: "pointer" }}
               >
                 Logout
               </a>
-              <div className="">Hello {user.name}!</div>
+             <div className="navtext">Hello {user.name}!</div>
             </div>
           ) : (
-            <div className="col-sm-4 ">
-              <Link to={"/login"} className="">
-              <p className="nav-link"> Login</p>
+            <div className="col-sm-4">
+              <Link to={"/login"} className="navbox">
+              <p className="navtext"> Login</p>
               </Link>
             </div>
           )}
-        </ul>
+        </div>
       </div>
 
       {/* end of navigation /
