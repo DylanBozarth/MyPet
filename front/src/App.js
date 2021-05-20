@@ -7,6 +7,7 @@ import RestaurantsList from "./components/pet-list";
 import Login from "./components/login";
 import PetFocus from "./components/petfocus";
 import { Submit } from "./components/submit";
+import { Searchbars } from "./components/searchbars";
 
 function App() {
   const [user, setUser] = React.useState(null);
@@ -16,68 +17,67 @@ function App() {
   }
 
   async function logout() {
-    setUser(null)
+    setUser(null);
   }
 
   return (
     <div className="container">
       <nav className="navbar navbar-expand navbar-dark ">
-        <a href="/restaurants" className="navbar-brand text-center">
-         My Pet
+        <a href="/pets" className="navbar-brand text-center">
+          My Pet
         </a>
         <div className="navbar-nav mr-auto">
-        <li className="nav-item" >
-          <Link to="/submit">
-        <div className="nav-link" >
-             Submit your pet
-            </div></Link>
-          </li>
-          <li className="nav-item" >
-            { user ? (
-              <div className="row">
-              <a onClick={logout} className="nav-link" style={{cursor:'pointer'}}>
-               Logout
-              </a>
-              <div className="nav-link" >
-              Hello {user.name}!
-            </div>
-            </div>
-            ) : (            
-            <Link to={"/login"} className="nav-link">
-              Login
+          <li className="nav-item">
+            <Link to="/submit">
+              <div className="nav-link">Submit your pet</div>
             </Link>
-            )}
-
           </li>
+          <li className="nav-item">
+            {user ? (
+              <div className="row">
+                <a
+                  onClick={logout}
+                  className="nav-link"
+                  style={{ cursor: "pointer" }}
+                >
+                  Logout
+                </a>
+                <div className="nav-link">Hello {user.name}!</div>
+              </div>
+            ) : (
+              <Link to={"/login"} className="nav-link">
+                Login
+              </Link>
+            )}
+          </li>
+        </div>
+        <div className="nav-item">
+          <Searchbars />
         </div>
       </nav>
 
       <div className="container-fluid ">
         <Switch>
-          <Route exact path={["/", "/restaurants"]} component={RestaurantsList} />
-          <Route 
+          <Route
+            exact
+            path={["/", "/pets"]}
+            component={RestaurantsList}
+          />
+          <Route
             path="/pet/:id/review"
-            render={(props) => (
-              <AddReview {...props} user={user} />
-            )}
+            render={(props) => <AddReview {...props} user={user} />}
           />
-          <Route 
+          <Route
             path="/pets/:id"
-            render={(props) => (
-              <PetFocus {...props} user={user} />
-            )}
+            render={(props) => <PetFocus {...props} user={user} />}
           />
-          <Route 
+          <Route
             path="/login"
-            render={(props) => (
-              <Login {...props} login={login} />
-            )}
+            render={(props) => <Login {...props} login={login} />}
           />
-          <Route 
+          <Route
             path="/submit"
-            render={(props) => (
-              <Submit {...props} login={Submit} />
-            )}
+            render={(props) => <Submit {...props} login={Submit} />}
           />
         </Switch>
       </div>

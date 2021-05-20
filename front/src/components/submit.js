@@ -21,7 +21,7 @@ export const Submit = (props) => {
     e.preventDefault();
    //('https://us-west-2.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/my_pets-dbdsd/service/pets/incoming_webhook/addnewpet')
     let _data = {
-      name: petName,
+      
       body: petName,
      
     }
@@ -36,7 +36,7 @@ export const Submit = (props) => {
     .then(json => console.log(json));
   };
   return (
-    (props.user) ?
+    (props.user !== null) ?
     <div>
       Submit your own
       <div

@@ -39,9 +39,9 @@ export const Searchbars = () => {
     find(searchType, "type")
   };
   return (
-        <div className="container text-center searchbars">
+        <div className=" text-center searchbars">
       <div className="row">
-        <div className="input-group col-lg-6">
+        <div className="input-group ">
           <input
             type="text"
             className="form-control white"
@@ -59,24 +59,7 @@ export const Searchbars = () => {
             </button>
           </div>
         </div>
-        <div className="input-group col-lg-6">
-          <input
-            type="text"
-            className="form-control white"
-            placeholder="Search by Type"
-            value={searchType}
-            onChange={onChangeSearchType}
-          />
-          <div className="input-group-append">
-            <button
-              className="btn btn-success"
-              type="button"
-              onClick={findByType}
-            >
-              Search
-            </button>
-          </div>
-        </div>
+       
         
 </div>
       </div>

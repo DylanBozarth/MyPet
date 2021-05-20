@@ -74,16 +74,16 @@ const getPetInfo = () => {
   if (pets) {
     return (
       <div className="row ">
-        <Searchbars />
+        
         {pets.map((pets) => {
           return (
-            <div className="col-lg-4 ">
+            <div className="col-lg-4 text-center">
               <div className="card" key={pets.name}>
                 <div className="card-body">
                   <h5 className="card-title">{pets.pet}</h5>
                   <h6 className="card-title">{pets.breed}</h6>
                   <button
-                    className="btn btn-primary col-lg-5 mx-1 mb-1"
+                    className="btn btn-primary col-lg-5 mx-1 mb-1 text-center"
                     onClick={() => addLike()}
                   >
                     Give like
@@ -91,17 +91,19 @@ const getPetInfo = () => {
                   <p className="likesp">{parseInt(pets.likes, 0)} People like this</p>
                   <img
                     src={pets.image}
-                    className="img-fluid"
+                    className="img-fluid petimage"
                     alt={pets.pet}
                   ></img>
+                  Fun fact about {pets.pet}:
                   <p>{pets.desc}</p>
                   <div className="row">
-                    <Link
+         {/*} <Link
                       to={"/pets/" + pets._id}
                       className="btn btn-primary col-lg-5 mx-1 mb-1"
                     >
                       View Comments
                     </Link>
+          */}
                   </div>
                 </div>
               </div>
