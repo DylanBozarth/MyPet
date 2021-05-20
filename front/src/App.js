@@ -22,47 +22,46 @@ function App() {
 
   return (
     <div className="container">
-      <nav className="navbar navbar-expand navbar-dark ">
-        <a href="/pets" className="navbar-brand text-center">
+      <nav className=" row">
+        <div className="col-sm-4">
+        <Link href="/pets" className="navbar-brand">
           My Pet
-        </a>
-        <div className="navbar-nav mr-auto">
-          <li className="nav-item">
-            <Link to="/submit">
-              <div className="nav-link">Submit your pet</div>
-            </Link>
-          </li>
-          <li className="nav-item">
-            {user ? (
-              <div className="row">
-                <a
-                  onClick={logout}
-                  className="nav-link"
-                  style={{ cursor: "pointer" }}
-                >
-                  Logout
-                </a>
-                <div className="nav-link">Hello {user.name}!</div>
-              </div>
-            ) : (
+        </Link>
+</div>
+        
+
+        <div className="col-sm-4">
+          <Link className="nav-link" to="/submit">
+            Submit your own!
+          </Link>
+        </div>
+        <ul className="navbar-nav col-sm-4">
+          {user ? (
+            <div className="">
+              <a
+                onClick={logout}
+                className="nav-link"
+                style={{ cursor: "pointer" }}
+              >
+                Logout
+              </a>
+              <div className="">Hello {user.name}!</div>
+            </div>
+          ) : (
+            <div className="col-sm-4 ">
               <Link to={"/login"} className="nav-link">
                 Login
               </Link>
-            )}
-          </li>
-        </div>
-        <div className="nav-item">
-          <Searchbars />
-        </div>
+            </div>
+          )}
+        </ul>
       </nav>
 
+      {/* end of navigation /
+       */}
       <div className="container-fluid ">
         <Switch>
-          <Route
-            exact
-            path={["/", "/pets"]}
-            component={RestaurantsList}
-          />
+          <Route exact path={["/", "/pets"]} component={RestaurantsList} />
           <Route
             path="/pet/:id/review"
             render={(props) => <AddReview {...props} user={user} />}
