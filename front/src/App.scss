@@ -21,7 +21,7 @@ height: 290px;
 }
 .nav-bar {
   border: solid 2px $forth;
-  width: 110%;
+  width: 100%;
   background-color: $third;
   margin-bottom: 3vh;
 }
@@ -69,4 +69,10 @@ font-size: 25px;
 
 .example2 .navbar-brand>img {
   padding: 7px 15px;
+}
+.submitbox {
+  text-align: center;
+}
+.submitInputs {
+  font-size: 200%;
 }

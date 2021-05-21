@@ -7,7 +7,6 @@ import RestaurantsList from "./components/pet-list";
 import Login from "./components/login";
 import PetFocus from "./components/petfocus";
 import { Submit } from "./components/submit";
-import { Searchbars } from "./components/searchbars";
 
 function App() {
   const [user, setUser] = React.useState(null);
@@ -21,7 +20,7 @@ function App() {
   }
 
   return (
-    <div className="container-fluid">
+    <div className="container">
       <div className=" row nav-bar">
         <div className="col-sm-4">
         <Link to="/pets" className="navbox">
@@ -35,9 +34,9 @@ function App() {
             <p className="navtext">Submit your own!</p>
           </Link>
         </div>
-        <div className="col-sm-4">
+        
           {user ? (
-            <div className="navbox">
+            <div className="navbox col-sm-4">
               <a
                 onClick={logout}
                 className="navtext text-right"
@@ -54,7 +53,7 @@ function App() {
               </Link>
             </div>
           )}
-        </div>
+        
       </div>
 
       {/* end of navigation /

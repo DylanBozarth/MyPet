@@ -20,8 +20,10 @@ const Login = props => {
   }
 
   return (
+    <div className="row">
+    <div className="col-sm-4"></div>
     <div className="submit-form col-sm-4">
-      Use whatever username and password you want, this is not a secure application.
+      <h3 className="text-center">Use whatever username and password you want, this is not a secure application.</h3>
       <div>
         <div className="form-group">
           <label htmlFor="user">Username</label>
@@ -48,12 +50,14 @@ const Login = props => {
             name="id"
           />
         </div>
-
-        <button onClick={login} className="btn btn-success">
+<div className="text-center">
+        <button onClick={login} className="btn btn-success text-center">
           Login
         </button>
-      </div>
+      </div></div>
+      <br /> I will totally sell your data if given the chance.
     </div>
+    <div className="col-sm-4"></div></div>
   );
 };
 
