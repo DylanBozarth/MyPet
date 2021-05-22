@@ -39,10 +39,10 @@ const Login = props => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="id">ID</label>
+          <label htmlFor="id">Password</label>
           <input
             type="text"
-            className="form-control white"
+            className="form-control "
             id="id"
             required
             value={user.id}

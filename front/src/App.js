@@ -39,7 +39,7 @@ function App() {
             <div className="navbox col-sm-4">
               <a
                 onClick={logout}
-                className="navtext text-right"
+                className="navtext "
                 style={{ cursor: "pointer" }}
               >
                 Logout
