@@ -43,8 +43,10 @@ function App() {
                 style={{ cursor: "pointer" }}
               >
                 Logout
+                <br />
+                Hello, {user.name}!
               </a>
-             <div className="navtext">Hello {user.name}!</div>
+             
             </div>
           ) : (
             <div className="col-sm-4">
