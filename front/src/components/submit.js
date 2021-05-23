@@ -4,7 +4,7 @@ export const Submit = (props) => {
   const [petName, setPetName] = useState("");
   const [petBreed, setPetBreed] = useState("");
   const [petImage, setPetImage] = useState("");
-  
+  const [petDesc, setPetDesc] = useState('');
   const changePetName = (e) => {
     const searchName = e.target.value;
     setPetName(searchName);
@@ -20,7 +20,12 @@ export const Submit = (props) => {
   };
   const submitPet = (e) => {
     e.preventDefault();
-   
+   let data = {
+     pet: petName,
+     breed: petBreed,
+     image: petImage
+
+   }
    
    
   
@@ -29,7 +34,7 @@ export const Submit = (props) => {
     
     <div className="row">
       
-    {(props.user) ?
+    {(props.user !== null) ?
     <div className="col-sm-6 submitbox">
       Submit your own
       <div
@@ -57,7 +62,15 @@ export const Submit = (props) => {
           value={petImage}
           onChange={changePetImage}
         ></input>
+
         <br />
+        <label >A fun fact about your pet</label> <br />
+        <input
+          placeholder="fun fact"
+          className="submitInput"
+          value={petDesc}
+          onChange={setPetDesc}
+        ></input>
         <button onClick={(e) => submitPet(e)}>Submit</button>
       </div>
      <div className="col-sm-4">Privacy Notice <br /> By adding your pet's photo to this website you henceforth revoke all rights in preventing me from petting your pet and referring to them as a good boy/girl. <br /> That is all. </div>

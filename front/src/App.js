@@ -75,7 +75,7 @@ function App() {
           />
           <Route
             path="/submit"
-            render={(props) => <Submit {...props} login={Submit} />}
+            render={(props) => <Submit {...props} user={user} login={Submit} />}
           />
         </Switch>
       </div>
