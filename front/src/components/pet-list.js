@@ -82,7 +82,7 @@ const getPetInfo = () => {
                 <div className="card-body">
                   <h3 className="card-title">{pets.pet}</h3>
                   <h4 className="card-title">{pets.breed}</h4>
-                  
+                  <p>submitted by: {pets.user}</p>
                   <img
                     src={pets.image}
                     className="img-fluid petimage"
@@ -90,13 +90,8 @@ const getPetInfo = () => {
                   ></img>
                   <p className="card-text-title">Fun fact about {pets.pet}:</p>
                   <p className="card-text">{pets.desc}</p>
-                  <button
-                    className="btn btn-primary col-lg-5 mx-1 mb-1 text-center"
-                    onClick={() => addLike()}
-                  >
-                    Give like
-                  </button>
-                  <p className="likesp">{parseInt(pets.likes, 0)} People like this</p>
+                 
+                 
                   <div className="row">
          {/*} <Link
                       to={"/pets/" + pets._id}
