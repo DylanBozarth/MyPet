@@ -26,7 +26,7 @@ const Login = props => {
       <h3 className="text-center">Use whatever username and password you want, this is not a secure application.</h3>
       <div>
         <div className="form-group">
-          <label htmlFor="user">Username</label>
+          <label htmlFor="user">Your Name</label>
           <input
             type="text"
             className="form-control white"
@@ -38,18 +38,7 @@ const Login = props => {
           />
         </div>
 
-        <div className="form-group">
-          <label htmlFor="id">Password</label>
-          <input
-            type="text"
-            className="form-control "
-            id="id"
-            required
-            value={user.id}
-            onChange={handleInputChange}
-            name="id"
-          />
-        </div>
+        
 <div className="text-center">
         <button onClick={login} className="btn btn-success text-center">
           Login

@@ -9,7 +9,10 @@ export const Submit = (props) => {
     const searchName = e.target.value;
     setPetName(searchName);
   };
-
+const changePetDesc = (e) => {
+  const searchDesc = e.target.value 
+  setPetDesc(searchDesc)
+}
   const changeBreedType = (e) => {
     const searchType = e.target.value;
     setPetBreed(searchType);
@@ -23,12 +26,27 @@ export const Submit = (props) => {
    let data = {
      pet: petName,
      breed: petBreed,
-     image: petImage
-
+     image: petImage,
+     desc: petDesc,
+     user: props.user
    }
    
-   
-  
+    fetch('https://us-west-2.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/my_pets-dbdsd/service/pets/incoming_webhook/addnewpet', {
+      method: 'POST',
+      body: data,
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8'
+      }
+    }).then(function (response) {
+      if (response.ok) {
+        return response.json();
+      }
+      return Promise.reject(response);
+    }).then(function (data) {
+      console.log(data);
+    }).catch(function (error) {
+      console.warn('Something went wrong.', error);
+    });
   }
   return (
     
@@ -69,7 +87,7 @@ export const Submit = (props) => {
           placeholder="fun fact"
           className="submitInput"
           value={petDesc}
-          onChange={setPetDesc}
+          onChange={changePetDesc}
         ></input>
         <button onClick={(e) => submitPet(e)}>Submit</button>
       </div>
