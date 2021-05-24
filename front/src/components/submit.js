@@ -58,6 +58,7 @@ const changePetDesc = (e) => {
           className="submitInput"
           value={petName}
           onChange={changePetName}
+          required
         ></input>
         <br />
         <label>Your pet's breed</label>  <br />
@@ -66,6 +67,7 @@ const changePetDesc = (e) => {
           className="submitInput"
           value={petBreed}
           onChange={changeBreedType}
+          required
         ></input>
         <br />
         <label >An image of your pet</label> <br />
@@ -74,6 +76,7 @@ const changePetDesc = (e) => {
           className="submitInput"
           value={petImage}
           onChange={changePetImage}
+          required
         ></input>
 
         <br />
@@ -83,6 +86,7 @@ const changePetDesc = (e) => {
           className="submitInput"
           value={petDesc}
           onChange={changePetDesc}
+          required
         ></input>
         <button onClick={(e) => submitPet(e)}>Submit</button>
       </div>

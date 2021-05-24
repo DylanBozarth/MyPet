@@ -9,7 +9,7 @@ const RestaurantsList = (props) => {
   const [likeCount, setLikeCount] = useState("");
   useEffect(() => {
     getPetInfo();
-    addLike();
+   
   }, []);
 
   const onChangeSearchName = (e) => {
@@ -30,27 +30,8 @@ const RestaurantsList = (props) => {
     console.log(json);
     setPets(json.pets);
   }
-  const addLike = () => {
-    let likes = parseInt(pets.likes, 0);
-    console.log(likes)
-    setLikeCount(likes += 1);
-    console.log(likes + ' after add');
-  };
-  {
-    /*
-const getPetInfo = () => {
-  getPetInfoService.getAll()
-    .then(response => {
-      console.log(response.data);
-      setPets(response.data.restaurants);
-      
-    })
-    .catch(e => {
-      console.log(e);
-    });
-};
-*/
-  }
+  
+  
 
   const find = (query, by) => {
     getPetInfo
