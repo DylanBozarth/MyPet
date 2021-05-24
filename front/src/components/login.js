@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Login = props => {
 
@@ -8,7 +8,9 @@ const Login = props => {
   };
 
   const [user, setUser] = useState(initialUserState);
-
+useEffect(() => {
+  console.log(user)
+})
   const handleInputChange = event => {
     const { name, value } = event.target;
     setUser({ ...user, [name]: value });
@@ -37,8 +39,19 @@ const Login = props => {
             name="name"
           />
         </div>
+        <div className="form-group">
+          <label htmlFor="id">Your password</label>
+          <input
+            type="text"
+            className="form-control white"
+            id="id"
+            required
+            value={user.id}
+            onChange={handleInputChange}
+            name="id"
+          />
+        </div>
 
-        
 <div className="text-center">
         <button onClick={login} className="btn btn-success text-center">
           Login
