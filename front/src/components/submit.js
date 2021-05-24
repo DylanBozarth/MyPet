@@ -29,7 +29,7 @@ const changePetDesc = (e) => {
      breed: petBreed,
      image: petImage,
      desc: petDesc,
-     user: props.user
+     user: toString(props.user)
    }
    
     //'https://us-west-2.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/my_pets-dbdsd/service/pets/incoming_webhook/addnewpet'
