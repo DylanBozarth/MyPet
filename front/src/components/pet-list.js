@@ -56,7 +56,7 @@ const getPetInfo = () => {
     getPetInfo
       .find(query, by)
       .then((response) => {
-        console.log(response.data);
+        
         setPets(response.data.restaurants);
       })
       .catch((e) => {

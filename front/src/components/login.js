@@ -23,7 +23,7 @@ const Login = props => {
     <div className="row">
     <div className="col-sm-4"></div>
     <div className="submit-form col-sm-4">
-      <h3 className="text-center">Use whatever username and password you want, this is not a secure application.</h3>
+      <h3 className="text-center">Use whatever username you want, this is not a secure application.</h3>
       <div>
         <div className="form-group">
           <label htmlFor="user">Your Name</label>

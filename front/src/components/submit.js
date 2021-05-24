@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 export const Submit = (props) => {
   const [petName, setPetName] = useState("");
@@ -31,22 +32,16 @@ const changePetDesc = (e) => {
      user: props.user
    }
    
-    fetch('https://us-west-2.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/my_pets-dbdsd/service/pets/incoming_webhook/addnewpet', {
-      method: 'POST',
-      body: data,
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8'
-      }
-    }).then(function (response) {
-      if (response.ok) {
-        return response.json();
-      }
-      return Promise.reject(response);
-    }).then(function (data) {
-      console.log(data);
-    }).catch(function (error) {
-      console.warn('Something went wrong.', error);
+    //'https://us-west-2.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/my_pets-dbdsd/service/pets/incoming_webhook/addnewpet'
+    axios
+    .post(
+      "https://us-west-2.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/my_pets-dbdsd/service/pets/incoming_webhook/addnewpet",
+      data
+    )
+    .then((response) => {
+      console.log(response);
     });
+   
   }
   return (
     
