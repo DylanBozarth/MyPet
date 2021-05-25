@@ -46,9 +46,7 @@ useEffect(() => {
             className="form-control white"
             id="id"
             required
-            value={user.id}
-            onChange={handleInputChange}
-            name="id"
+           
           />
         </div>
 

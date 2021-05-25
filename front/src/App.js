@@ -62,7 +62,7 @@ function App() {
        */}
       <div className="container-fluid  ">
         <Switch>
-          <Route exact path={["/", "/pets"]} component={RestaurantsList} />
+          <Route exact path={["/", "/pets"]}  render={(props) => <RestaurantsList {...props} user={user} />} />
           <Route
             path="/pet/:id/review"
             render={(props) => <AddReview {...props} user={user} />}
