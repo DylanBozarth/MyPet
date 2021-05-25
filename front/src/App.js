@@ -7,6 +7,7 @@ import RestaurantsList from "./components/pet-list";
 import Login from "./components/login";
 import PetFocus from "./components/petfocus";
 import { Submit } from "./components/submit";
+import { Account } from "./components/account";
 
 function App() {
   const [user, setUser] = React.useState(null);
@@ -23,46 +24,43 @@ function App() {
     <div className="container">
       <div className=" row nav-bar">
         <div className="col-sm-4">
-        <Link to="/pets" className="navbox">
-        <p className="navtext"> My Pet</p>
-        </Link>
-</div>
-        
+          <Link to="/pets" className="navbox">
+            <p className="navtext"> My Pet</p>
+          </Link>
+        </div>
 
         <div className="col-sm-4">
           <Link className="navbox" to="/submit">
             <p className="navtext">Submit your own!</p>
           </Link>
         </div>
-        
-          {user ? (
-            <div className="navbox col-sm-4">
-              <a
-                onClick={logout}
-                className="navtext "
-                style={{ cursor: "pointer" }}
-              >
+<div className="col-sm-4">
+        {user ? (
+          <Link to="/" className="navbox">
+            
+              <p onClick={logout} className="navtext ">
                 Logout
-                <br />
-                Hello, {user.name}!
-              </a>
-             
-            </div>
-          ) : (
-            <div className="col-sm-4">
-              <Link to={"/login"} className="navbox">
+              </p>
+           
+          </Link>
+        ) : (
+         
+            <Link to={"/login"} className="navbox">
               <p className="navtext"> Login</p>
-              </Link>
-            </div>
-          )}
+            </Link>
         
+        )}
       </div>
-
+</div>
       {/* end of navigation /
        */}
       <div className="container-fluid  ">
         <Switch>
-          <Route exact path={["/", "/pets"]}  render={(props) => <RestaurantsList {...props} user={user} />} />
+          <Route
+            exact
+            path={["/", "/pets"]}
+            render={(props) => <RestaurantsList {...props} user={user} />}
+          />
           <Route
             path="/pet/:id/review"
             render={(props) => <AddReview {...props} user={user} />}
@@ -78,6 +76,12 @@ function App() {
           <Route
             path="/submit"
             render={(props) => <Submit {...props} user={user} login={Submit} />}
+          />
+          <Route
+            path="/account"
+            render={(props) => (
+              <Account {...props} user={user} login={Submit} />
+            )}
           />
         </Switch>
       </div>
