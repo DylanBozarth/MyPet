@@ -6,7 +6,6 @@ const RestaurantsList = (props) => {
   const [pets, setPets] = useState([]);
   const [searchName, setSearchName] = useState("");
   const [searchType, setSearchType] = useState("");
-  const [likeCount, setLikeCount] = useState("");
   useEffect(() => {
     getPetInfo();
    
@@ -60,10 +59,11 @@ const RestaurantsList = (props) => {
           return (
             <div className="col-lg-4 text-center">
               <div className="card" key={pets.name}>
+               
                 <div className="card-body">
                   <h3 className="card-title">{pets.pet}</h3>
                   <h4 className="card-title">{pets.breed}</h4>
-                  <p>submitted by: {pets.user}</p>
+                  <p>submitted by: {pets.user}</p> {pets.userPW === props.userPW ? (<button className="btn btn-danger">Delete </button> ) : (<p></p>)}
                   <img
                     src={pets.image}
                     className="img-fluid petimage"

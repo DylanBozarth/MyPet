@@ -30,7 +30,8 @@ const changePetDesc = (e) => {
      breed: petBreed,
      image: petImage,
      desc: petDesc,
-     user: props.user.name
+     user: props.user.name,
+     userPW: props.user.id
    }
    
     //'https://us-west-2.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/my_pets-dbdsd/service/pets/incoming_webhook/addnewpet'
@@ -49,9 +50,9 @@ const changePetDesc = (e) => {
     <div className="row">
       
     {(props.user !== null) ?
-    <div className="col-sm-6 submitbox">
+    <div className="col-sm-12 submitbox">
       Submit your own
-      <div
+      <form onSubmit={(e) => submitPet(e)}
       >
         <label>Your pet's name</label> <br />
         <input
@@ -89,11 +90,12 @@ const changePetDesc = (e) => {
           onChange={changePetDesc}
           required
         ></input>
-        <button onClick={(e) => submitPet(e)}>Submit</button>
-      </div>
-     <div className="col-sm-4">Privacy Notice <br /> By adding your pet's photo to this website you henceforth revoke all rights in preventing me from petting your pet and referring to them as a good boy/girl. <br /> That is all. </div>
+        <br />
+        <button>Submit</button>
+      </form>
+     <div className="">Privacy Notice <br /> By adding your pet's photo to this website you henceforth revoke all rights in preventing me from petting your pet and referring to them as a good boy/girl. <br /> That is all. </div>
     </div> :
-    <div>Log in bro</div>}</div>
+    <div>Please Log in first</div>}</div>
   );
 };
 
