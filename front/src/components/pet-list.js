@@ -56,7 +56,7 @@ const RestaurantsList = (props) => {
      
     }
   
-  if (pets) {
+  if (pets && props.user) {
     return (
       <div className="row body">
         {pets.map((pets) => {
@@ -67,12 +67,11 @@ const RestaurantsList = (props) => {
                   <h3 className="card-title">{pets.pet}</h3>
                   <h4 className="card-title">{pets.breed}</h4>
                   <p>submitted by: {pets.user}</p>{" "}
-
-                 {/*} {pets.user === props.user.name ? (
+{pets.user === props.user.name ? (
                     <button className="btn btn-danger" onClick={(e) => deletePet(e)}>Delete </button>
                   ) : (
                     <p><br /></p>
-                  )} */}
+                  )} 
                   <img
                     src={pets.image}
                     className="img-fluid petimage"
@@ -96,9 +95,47 @@ const RestaurantsList = (props) => {
         })}
       </div>
     );
-  } else {
+  } 
+  else if (pets) {
+return (
+  <div className="row body">
+        {pets.map((pets) => {
+          return (
+            <div className="col-lg-4 text-center">
+              <div className="card" key={pets.user}>
+                <div className="card-body">
+                  <h3 className="card-title">{pets.pet}</h3>
+                  <h4 className="card-title">{pets.breed}</h4>
+                  <p>submitted by: {pets.user}</p>{" "}
+
+                  <img
+                    src={pets.image}
+                    className="img-fluid petimage"
+                    alt={pets.pet}
+                  ></img>
+                  <p className="card-text-title">Fun fact about {pets.pet}:</p>
+                  <p className="card-text">{pets.desc}</p>
+                  <div className="row">
+                    {/*} <Link
+                      to={"/pets/" + pets._id}
+                      className="btn btn-primary col-lg-5 mx-1 mb-1"
+                    >
+                      View Comments
+                    </Link>
+          */}
+                  </div>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+)
+  }
+  else {
     return <div>App is loading</div>;
   }
+
 };
 
 export default RestaurantsList;

@@ -71,7 +71,7 @@ const changePetDesc = (e) => {
           required
         ></input>
         <br />
-        <label >An image of your pet</label> <br />
+        <label >An image of your pet <br /> (In url format)</label> <br />
         <input
           placeholder="image URL"
           className="submitInput"
