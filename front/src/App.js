@@ -22,36 +22,41 @@ function App() {
 
   return (
     <div className="container">
-      <div className=" row nav-bar">
-        <div className="col-sm-4">
-          <Link to="/pets" className="navbox">
-            <p className="navtext"> My Pet</p>
-          </Link>
-        </div>
+     
+<nav class="menu">
+  <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open"/>
+  <label class="menu-open-button" for="menu-open">
+    <span class="hamburger hamburger-1"></span>
+    <span class="hamburger hamburger-2"></span>
+    <span class="hamburger hamburger-3"></span>
+  </label>
+  
+  <a href="#" class="menu-item about"> <Link to="/login">Login</Link></a>
+  <a href="#" class="menu-item capabilities"> <i class="fa fa-info"></i> </a>
+  <a href="#" class="menu-item "> <i class="fa fa-pencil"></i> </a>
+  <a href="#" class="menu-item portfolio"> <i class="fa fa-suitcase"></i> </a>
+  <a href="#" class="menu-item"> <i class="fa fa-envelope"></i> </a>
 
-        <div className="col-sm-4">
-          <Link className="navbox" to="/submit">
-            <p className="navtext">Submit your own!</p>
-          </Link>
-        </div>
-<div className="col-sm-4">
-        {user ? (
-          <Link to="/" className="navbox">
-            
-              <p onClick={logout} className="navtext ">
-                Logout
-              </p>
-           
-          </Link>
-        ) : (
-         
-            <Link to={"/login"} className="navbox">
-              <p className="navtext"> Login</p>
-            </Link>
-        
-        )}
-      </div>
-</div>
+</nav>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+    <defs>
+      <filter id="shadowed-goo">
+          
+          <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
+          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+          <feGaussianBlur in="goo" stdDeviation="3" result="shadow" />
+          <feColorMatrix in="shadow" mode="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 -0.2" result="shadow" />
+          <feOffset in="shadow" dx="1" dy="1" result="shadow" />
+          <feBlend in2="shadow" in="goo" result="goo" />
+          <feBlend in2="goo" in="SourceGraphic" result="mix" />
+      </filter>
+      <filter id="goo">
+          <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
+          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+          <feBlend in2="goo" in="SourceGraphic" result="mix" />
+      </filter>
+    </defs>
+</svg>
       {/* end of navigation /
        */}
       <div className="container-fluid  ">
