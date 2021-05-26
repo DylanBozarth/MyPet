@@ -32,10 +32,9 @@ function App() {
   </label>
   
   <a href="#" class="menu-item about"> <Link to="/login">Login</Link></a>
-  <a href="#" class="menu-item capabilities"> <i class="fa fa-info"></i> </a>
-  <a href="#" class="menu-item "> <i class="fa fa-pencil"></i> </a>
-  <a href="#" class="menu-item portfolio"> <i class="fa fa-suitcase"></i> </a>
-  <a href="#" class="menu-item"> <i class="fa fa-envelope"></i> </a>
+  <a href="#" class="menu-item capabilities"> <Link to="/submit">submit</Link></a>
+  <a href="#" class="menu-item "><Link to="/">Home</Link> </a>
+  
 
 </nav>
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
@@ -60,6 +59,7 @@ function App() {
       {/* end of navigation /
        */}
       <div className="container-fluid  ">
+      <div className="header text-center">My pet</div>
         <Switch>
           <Route
             exact
@@ -90,6 +90,7 @@ function App() {
           />
         </Switch>
       </div>
+      
       <div className="footer text-center">Copywrite</div>
     </div>
   );
