@@ -22,7 +22,7 @@ useEffect(() => {
   }
 
   return (
-    <div className="row">
+    <div className="row login">
     <div className="col-sm-4"></div>
     <div className="submit-form col-sm-4">
       <h3 className="text-center">Use whatever username you want, this is not a secure application.</h3>

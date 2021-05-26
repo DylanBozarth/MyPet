@@ -3,8 +3,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 const RestaurantsList = (props) => {
   const [pets, setPets] = useState([]);
-  const [searchName, setSearchName] = useState("");
-  const [searchType, setSearchType] = useState("");
+  
   useEffect(() => {
     getPetInfo();
     
@@ -20,24 +19,8 @@ const RestaurantsList = (props) => {
     setPets(json.pets);
   }
 
-  const find = (query, by) => {
-    getPetInfo
-      .find(query, by)
-      .then((response) => {
-        setPets(response.data.restaurants);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  };
 
-  const findByName = () => {
-    find(searchName, "name");
-  };
-
-  const findByType = () => {
-    find(searchType, "type");
-  };
+ 
   const deletePet = (e, ) => {
       e.preventDefault();
     let data = {
@@ -58,7 +41,7 @@ const RestaurantsList = (props) => {
   
   if (pets && props.user) {
     return (
-      <div className="row body">
+      <div className="row ">
         {pets.map((pets) => {
           return (
             <div className="col-lg-4 text-center">
@@ -79,15 +62,7 @@ const RestaurantsList = (props) => {
                   ></img>
                   <p className="card-text-title card-text">Fun fact about {pets.pet}:</p>
                   <p className="card-text">{pets.desc}</p>
-                  <div className="row">
-                    {/*} <Link
-                      to={"/pets/" + pets._id}
-                      className="btn btn-primary col-lg-5 mx-1 mb-1"
-                    >
-                      View Comments
-                    </Link>
-          */}
-                  </div>
+                  
                 </div>
               </div>
             </div>
