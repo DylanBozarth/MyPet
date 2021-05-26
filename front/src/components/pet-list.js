@@ -64,20 +64,20 @@ const RestaurantsList = (props) => {
             <div className="col-lg-4 text-center">
               <div className="card" key={pets.user}>
                 <div className="card-body">
-                  <h3 className="card-title">{pets.pet}</h3>
-                  <h4 className="card-title">{pets.breed}</h4>
-                  <p>submitted by: {pets.user}</p>{" "}
+                  <h3 className="card-title card-text">{pets.pet}</h3>
+                  <h4 className="card-title card-text">{pets.breed}</h4>
+                  
 {pets.user === props.user.name ? (
                     <button className="btn btn-danger" onClick={(e) => deletePet(e)}>Delete </button>
                   ) : (
                     <p><br /></p>
-                  )} 
+                  )} <h5 className="card-text white">Submitted by: {pets.user}</h5>{" "}
                   <img
                     src={pets.image}
                     className="img-fluid petimage"
                     alt={pets.pet}
                   ></img>
-                  <p className="card-text-title">Fun fact about {pets.pet}:</p>
+                  <p className="card-text-title card-text">Fun fact about {pets.pet}:</p>
                   <p className="card-text">{pets.desc}</p>
                   <div className="row">
                     {/*} <Link
