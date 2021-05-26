@@ -46,10 +46,10 @@ const changePetDesc = (e) => {
   }
   return (
     
-    <div className="row">
+    <div className="row submitpage">
       
     {(props.user !== null) ?
-    <div className="col-sm-12 submitbox">
+    <div className="col-sm-8 submitbox card">
       Submit your own
       <form onSubmit={(e) => submitPet(e)}
       >

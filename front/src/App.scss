@@ -6,7 +6,6 @@ $fifth: #44707c;
 body {
   background-color: $second;
 font-weight: bolder;
-  
 }
 .white {
   color: white !important;
@@ -40,13 +39,14 @@ height: 250px;
 	left: 0;
 	width: 100%;
 	background-color: $third;
+  margin-bottom: 10vh;
   }
 
 .text-right {
   text-align: right;
 }
-.petlist {
-  margin-bottom: 200vh;
+.login {
+  margin-top: 5vh;
 }
 .card {
   background-color: $forth;
@@ -63,7 +63,7 @@ height: 250px;
 }
 .card-text {
   color: white !important;
-
+cursor: pointer;
 }
 .card-text-title {
   text-align: left;
@@ -73,8 +73,18 @@ height: 250px;
 .submitbox {
   text-align: center;
 }
+.submitpage {
+  margin-top: 10vh;
+}
 .submitInputs {
   font-size: 200%;
 }
 
 
+@media (max-width:767px)
+{
+  .card
+  {
+    margin-bottom: 14vh;
+  }
+}

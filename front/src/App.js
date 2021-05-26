@@ -63,7 +63,7 @@ function App() {
           <Link to="/submit">Submit</Link>
         </div>
         <div className="col-lg-4 nav-text">
-         <Link to="/login">Login</Link>
+        {(user ? <div  onClick={() => logout()}>Logout</div> : <Link to="/login">Login</Link>)}
         </div>
       </div>
       
