@@ -44,11 +44,11 @@ const RestaurantsList = (props) => {
       user: props.user.name
     }
      
-     
+     //maybe use id here? not sure
       axios
       .delete(
         `https://us-west-2.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/my_pets-dbdsd/service/pets/incoming_webhook/deletePet`,
-        data
+        
       )
       .then((response) => {
         console.log(response);
