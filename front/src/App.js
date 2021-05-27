@@ -17,6 +17,7 @@ function App() {
 
   async function logout() {
     setUser(null);
+    alert('You have logged out')
   }
 
   return (
@@ -50,13 +51,13 @@ function App() {
         </Switch>
       
       <div className="navbar row">
-        <div className="col-lg-4 nav-text">
-          <Link to ="/">Pets</Link>
+        <div className="col-lg-4 nav-text nav-item navhome">
+          <Link to ="/"><img alt="bone" src="./homebone.png"></img></Link>
         </div>
-        <div className="col-lg-4 nav-text">
+        <div className="col-lg-4 nav-text nav-item">
           <Link to="/submit">Submit</Link>
         </div>
-        <div className="col-lg-4 nav-text">
+        <div className="col-lg-4 nav-text nav-item">
         {(user ? <div  onClick={() => logout()}>Logout</div> : <Link to="/login">Login</Link>)}
         </div>
       </div>

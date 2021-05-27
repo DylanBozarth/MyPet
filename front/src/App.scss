@@ -22,13 +22,26 @@ body {
   bottom: 0;
   left: 0;
   width: 102%;
-  z-index:  99;
-  background-color: $third;
+  z-index:  95;
+  //background-color: $third;
+}
+.navhome {
+  background-image: url('./homebone.png');
+z-index: 99;
 }
 .nav-text {
   color: white;
   text-align: center;
+  text-decoration: none;
+  font-size: 3vh;
+  font-weight: bolder;
 }
+.nav-item {
+  border: 2px solid $third;
+  padding: 5px;
+  
+}
+
 .header {
   border: solid 2px $forth;
   position: fixed;
@@ -39,6 +52,8 @@ body {
   background-color: $third;
   margin-bottom: 10vh;
   z-index: 99;
+  font-weight: bolder;
+  font-size: 3vh;
 }
 
 .text-right {
@@ -68,7 +83,7 @@ body {
  
   padding: 0 1rem 2rem;
   padding-top: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 5rem;
   /* Compensate for excess margin on outer gallery flex items */
  
 }
@@ -77,6 +92,7 @@ body {
   /* Minimum width of 24rem and grow to fit available space */
   border: 2px solid $fifth;
   padding: 1rem;
+  margin-top: 1.5rem;
   box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
   overflow: hidden;
 }
