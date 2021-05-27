@@ -81,9 +81,9 @@ return (
               
               <div className="" key={pets.user}>
                 <div className="">
-                  <h3 className="">{pets.pet}</h3>
-                  <h4 className="">{pets.breed}</h4>
-                  <p>submitted by: {pets.user}</p>{" "}
+                  <h3 className="gallery-text">{pets.pet}</h3>
+                  <h4 className="gallery-text">{pets.breed}</h4>
+                  <p className="gallery-text">submitted by: {pets.user}</p>{" "}
 
                   <img 
                     src={pets.image}
@@ -91,8 +91,8 @@ return (
                     alt={pets.pet}
                     
                   ></img>
-                  <p className="">Fun fact about {pets.pet}:</p>
-                  <p className="">{pets.desc}</p>
+                  <p className="gallery-text">Fun fact about {pets.pet}:</p>
+                  <p className="gallery-text">{pets.desc}</p>
                   
                 </div>
               </div>

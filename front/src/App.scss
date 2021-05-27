@@ -9,16 +9,7 @@ body {
 .white {
   color: white !important;
 }
-.gallery {
-  position: relative;
-  z-index: 2;
-  padding: 10px;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  transition: all 0.5s ease-in-out;
-  transform: translateZ(0);
-}
+
 .petimage {
   object-fit: cover;
   width: 100%;
@@ -68,31 +59,47 @@ body {
 
 
 
-// aaa
-
+// gallery
+.gallery-text {
+  font-family: fantasy;
+}
 .gallery {
 
  
-  padding: 0 2rem 2rem;
+  padding: 0 1rem 2rem;
   padding-top: 2rem;
+  margin-bottom: 2rem;
   /* Compensate for excess margin on outer gallery flex items */
  
 }
 
 .gallery-item {
   /* Minimum width of 24rem and grow to fit available space */
-  
+  border: 2px solid $fifth;
+  padding: 1rem;
   box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
   overflow: hidden;
 }
-
+$bounce-color: $forth;
 .gallery-image {
-  
-  object-fit: fill;
-  transition: transform 400ms ease-out;
+  border-radius: 70%;
+  object-fit:cover;
+     width:300px;
+     height:300px;
+  margin-bottom: 1em;
+  background-color: $forth ;
+				box-shadow: 0 0 0 9px $forth ;
+        &:hover {
+				
+					animation:bounceOut .4s linear;
+				}
+}
+@keyframes bounceOut {
+  0%{ box-shadow: 0 0 0 6px $forth; opacity:1;}
+  25%{ box-shadow: 0 0 0 2px $forth; opacity:1;}
+  50%{ box-shadow: 0 0 0 9px $forth; opacity:1; }
+  75%{ box-shadow: 0 0 0 4px $forth; opacity:1;}
+  100%{ box-shadow: 0 0 0 6px $forth; opacity:1;}
 }
 
-.gallery-image:hover {
-  transform: scale(1.05);
-}
 
