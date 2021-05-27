@@ -73,10 +73,11 @@ const RestaurantsList = (props) => {
   else if (pets) {
 return (
   // NOT LOGGED IN
+  <div className="gallery">
   <div className="row ">
         {pets.map((pets) => {
           return (
-            <div className=" col-sm-4 fall-item fall-effect  text-center">
+            <div className=" col-md-4  text-center">
               <div className="" key={pets.user}>
                 <div className="">
                   <h3 className="">{pets.pet}</h3>
@@ -85,7 +86,7 @@ return (
 
                   <img
                     src={pets.image}
-                    className="img-fluid"
+                    className="gallery-image"
                     alt={pets.pet}
                   ></img>
                   <p className="">Fun fact about {pets.pet}:</p>
@@ -96,7 +97,7 @@ return (
             </div>
           );
         })}
-      </div>
+      </div></div>
 )
   }
   else {
