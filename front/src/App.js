@@ -7,7 +7,6 @@ import RestaurantsList from "./components/pet-list";
 import Login from "./components/login";
 import PetFocus from "./components/petfocus";
 import { Submit } from "./components/submit";
-import { Account } from "./components/account";
 
 function App() {
   const [user, setUser] = React.useState(null);
@@ -21,7 +20,7 @@ function App() {
   }
 
   return (
-    <div className="container">
+    <div className="container-fluid">
       
      
       <div className="header text-center">My pet</div>
@@ -47,12 +46,7 @@ function App() {
             path="/submit"
             render={(props) => <Submit {...props} user={user} login={Submit} />}
           />
-          <Route
-            path="/account"
-            render={(props) => (
-              <Account {...props} user={user} login={Submit} />
-            )}
-          />
+          
         </Switch>
       
       <div className="navbar row">

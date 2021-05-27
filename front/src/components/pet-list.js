@@ -22,16 +22,15 @@ const RestaurantsList = (props) => {
 
  
   const deletePet = (e, ) => {
-      e.preventDefault();
+      
     let data = {
-      user: props.user.name
+      user: props.user
     }
      
-     //maybe use id here? not sure
       axios
       .delete(
-        `https://us-west-2.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/my_pets-dbdsd/service/pets/incoming_webhook/deletePet`,
-        
+        `https://us-west-2.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/my_pets-dbdsd/service/pets/incoming_webhook/deletepet`,
+       data
       )
       .then((response) => {
         console.log(response);
@@ -41,30 +40,30 @@ const RestaurantsList = (props) => {
   
   if (pets && props.user) {
     return (
-      <div className="row ">
+      // USER IS LOGGED IN
+      <div  className="container ">
         {pets.map((pets) => {
           return (
-            <div className="col-lg-4 text-center">
-              <div className="card" key={pets.user}>
-                <div className="card-body">
-                  <h3 className="card-title card-text">{pets.pet}</h3>
-                  <h4 className="card-title card-text">{pets.breed}</h4>
+            <div className=" col-sm-4 fall-item fall-effect text-center" key={pets.name}>
+              
+               
+                  <h3 className="">{pets.pet}</h3>
+                  <h4 className="">{pets.breed}</h4>
                   
 {pets.user === props.user.name ? (
-                    <button className="btn btn-danger" onClick={(e) => deletePet(e)}>Delete </button>
+                    <button className="btn btn-danger" onClick={() => deletePet(props.user)}>Delete </button>
                   ) : (
                     <p><br /></p>
-                  )} <h5 className="card-text white">Submitted by: {pets.user}</h5>{" "}
+                  )} <h5 className="white">Submitted by: {pets.user}</h5>{" "}
                   <img
                     src={pets.image}
-                    className="img-fluid petimage"
+                    className=""
                     alt={pets.pet}
                   ></img>
-                  <p className="card-text-title card-text">Fun fact about {pets.pet}:</p>
-                  <p className="card-text">{pets.desc}</p>
+                  <p className=" ">Fun fact about {pets.pet}:</p>
+                  <p className="">{pets.desc}</p>
                   
-                </div>
-              </div>
+              
             </div>
           );
         })}
@@ -73,32 +72,25 @@ const RestaurantsList = (props) => {
   } 
   else if (pets) {
 return (
-  <div className="row body">
+  // NOT LOGGED IN
+  <div className="row ">
         {pets.map((pets) => {
           return (
-            <div className="col-lg-4 text-center">
-              <div className="card" key={pets.user}>
-                <div className="card-body">
-                  <h3 className="card-title">{pets.pet}</h3>
-                  <h4 className="card-title">{pets.breed}</h4>
+            <div className=" col-sm-4 fall-item fall-effect  text-center">
+              <div className="" key={pets.user}>
+                <div className="">
+                  <h3 className="">{pets.pet}</h3>
+                  <h4 className="">{pets.breed}</h4>
                   <p>submitted by: {pets.user}</p>{" "}
 
                   <img
                     src={pets.image}
-                    className="img-fluid petimage"
+                    className="img-fluid"
                     alt={pets.pet}
                   ></img>
-                  <p className="card-text-title">Fun fact about {pets.pet}:</p>
-                  <p className="card-text">{pets.desc}</p>
-                  <div className="row">
-                    {/*} <Link
-                      to={"/pets/" + pets._id}
-                      className="btn btn-primary col-lg-5 mx-1 mb-1"
-                    >
-                      View Comments
-                    </Link>
-          */}
-                  </div>
+                  <p className="">Fun fact about {pets.pet}:</p>
+                  <p className="">{pets.desc}</p>
+                  
                 </div>
               </div>
             </div>
