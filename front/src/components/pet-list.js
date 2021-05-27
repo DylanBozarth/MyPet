@@ -8,7 +8,7 @@ const RestaurantsList = (props) => {
     getPetInfo();
     
   }, []);
-
+ 
 
   async function getPetInfo() {
     const response = await fetch(
@@ -73,21 +73,23 @@ const RestaurantsList = (props) => {
   else if (pets) {
 return (
   // NOT LOGGED IN
-  <div className="gallery">
+  <div className="gallery container">
   <div className="row ">
         {pets.map((pets) => {
           return (
-            <div className=" col-md-4  text-center">
+            <div className="col-sm-4 gallery-item  text-center">
+              
               <div className="" key={pets.user}>
                 <div className="">
                   <h3 className="">{pets.pet}</h3>
                   <h4 className="">{pets.breed}</h4>
                   <p>submitted by: {pets.user}</p>{" "}
 
-                  <img
+                  <img 
                     src={pets.image}
-                    className="gallery-image"
+                    className=" img-fluid gallery-image"
                     alt={pets.pet}
+                    
                   ></img>
                   <p className="">Fun fact about {pets.pet}:</p>
                   <p className="">{pets.desc}</p>
