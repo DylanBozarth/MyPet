@@ -94,7 +94,7 @@ const changePetDesc = (e) => {
       </form>
      <div className="">Privacy Notice <br /> By adding your pet's photo to this website you henceforth revoke all rights in preventing me from petting your pet and referring to them as a good boy/girl. <br /> That is all. </div>
     </div> :
-    <div>Please Log in first</div>}</div>
+    <div className="text-center login">Please Log in first</div>}</div>
   );
 };
 

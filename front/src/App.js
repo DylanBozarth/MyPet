@@ -51,14 +51,14 @@ function App() {
         </Switch>
       
       <div className="navbar row">
-        <div className="col-lg-4 nav-text nav-item navhome">
-          <Link to ="/"><img alt="bone" src="./homebone.png"></img></Link>
+        <div className="col-lg-4 nav-text nav-item ">
+          <Link to ="/" className="nav-text">Home</Link>
         </div>
         <div className="col-lg-4 nav-text nav-item">
-          <Link to="/submit">Submit</Link>
+          <Link to="/submit" className="nav-text">Submit your own</Link>
         </div>
         <div className="col-lg-4 nav-text nav-item">
-        {(user ? <div  onClick={() => logout()}>Logout</div> : <Link to="/login">Login</Link>)}
+        {(user ? <div  onClick={() => logout()}>Logout</div> : <Link to="/login" className="nav-text">Login</Link>)}
         </div>
       </div>
       
