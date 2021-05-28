@@ -21,19 +21,21 @@ const RestaurantsList = (props) => {
 
 
  
-  const deletePet = (user ) => {
+  const deletePet = ( e) => {
       
-    
      
-      axios
+  {/*} axios
       .delete(
-        `https://us-west-2.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/my_pets-dbdsd/service/pets/incoming_webhook/deletepet`,
-       user
+        `https://us-west-2.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/my_pets-dbdsd/service/pets/incoming_webhook/deletePet/${user}`,
+       
       )
       .then((response) => {
         console.log(response);
       });
-     
+    */}
+      axios.delete('https://reqres.in/api/posts/1')
+      .then(() => console.log('all good'))
+      console.log(e._id)
     }
   
   if (pets && props.user) {
@@ -46,11 +48,12 @@ const RestaurantsList = (props) => {
           return (
             <div className="col-sm-4 gallery-item  text-center">
               
-              <div className="" key={pets.user}>
+              <div className="" key={pets.user} id={pets._id}>
                 <div className="">
                   <h3 className="gallery-text">{pets.pet}</h3>
                   <h4 className="gallery-text">{pets.breed}</h4>
-                  <p className="gallery-text">submitted by: {pets.user}</p>{" "}
+                  
+                 
 
                   <img 
                     src={pets.image}
@@ -64,9 +67,9 @@ const RestaurantsList = (props) => {
                   <p className="gallery-text">Fun fact about {pets.pet}:</p>
                   <p className="gallery-text">{pets.desc}</p>
                   {pets.user === props.user.name ? (
-        <button className="btn btn-danger" onClick={() => deletePet(props.user)}>Delete </button>
+        <button className="btn btn-danger" onClick={() => deletePet(pets._id)}>Delete </button>
       ) : (
-        <p><br /></p>
+        <p className="gallery-text">submitted by: {pets.user}</p>
       )}
                 </div>
                 </div></div>

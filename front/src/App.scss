@@ -53,10 +53,11 @@ body {
   width: 100%;
   background-color: $third;
   margin-bottom: 10vh;
-  z-index: 99;
+  z-index: -1;
   font-weight: bolder;
-  font-size: 4.5vh;
+  font-size: 5vh;
   color: $text;
+  font-family: 'playball';
 }
 
 .text-right {
@@ -80,16 +81,15 @@ body {
 
 
 // gallery
-.gallery-text {
-  font-family: fantasy;
+
+.container {
+  margin-bottom: 25vh;
 }
 .gallery {
 
  
   padding: 0 1rem 2rem;
   margin-top: 10vh;
-
-  margin-bottom: 15vh;
   /* Compensate for excess margin on outer gallery flex items */
  
 }
@@ -99,9 +99,9 @@ body {
 }
 .gallery-item {
   /* Minimum width of 24rem and grow to fit available space */
-  
+  background-color: $second;
   border: solid 2.3px $third;
-  margin-top: 1.5rem;
+  margin-top: 5rem;
   box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
   overflow: hidden;
 }
