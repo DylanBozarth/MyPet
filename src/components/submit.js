@@ -40,7 +40,7 @@ const changePetDesc = (e) => {
       data
     )
     .then((response) => {
-      console.log(response);
+      alert('Sucess, check the home page for your post.')
     });
    
   }
