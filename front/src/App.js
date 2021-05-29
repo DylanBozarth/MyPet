@@ -13,6 +13,7 @@ function App() {
 
   async function login(user = null) {
     setUser(user);
+    localStorage.setItem("user", user)
   }
 
   async function logout() {
