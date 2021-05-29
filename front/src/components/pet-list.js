@@ -20,11 +20,11 @@ const RestaurantsList = (props) => {
   const deletePet = (_id) => {
     axios
       .delete(
-        `https://us-west-2.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/my_pets-dbdsd/service/pets/incoming_webhook/deletePet?id=${_id}`,
-        { data: {_id: _id } }
+        `https://us-west-2.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/my_pets-dbdsd/service/pets/incoming_webhook/deletePet?_id=${_id}`,
+      
       )
       .then(() => {
-        console.log("worked");
+        window.location.reload();
       })
       .catch((error) => {
         console.log(error);
