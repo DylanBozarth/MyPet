@@ -31,7 +31,7 @@ useEffect(() => {
           <label htmlFor="user">Your Name</label>
           <input
             type="text"
-            className="form-control white"
+            className="form-control "
             id="name"
             required
             value={user.name}
@@ -43,7 +43,7 @@ useEffect(() => {
           <label htmlFor="id">Your password</label>
           <input
             type="text"
-            className="form-control white"
+            className="form-control "
             id="id"
             required
            
