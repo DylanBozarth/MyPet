@@ -7,6 +7,9 @@ export const Submit = (props) => {
   const [petImage, setPetImage] = useState("");
   const [petDesc, setPetDesc] = useState('');
   
+  useEffect(() => {
+
+  })
   const changePetName = (e) => {
     const searchName = e.target.value;
     setPetName(searchName);
@@ -33,7 +36,7 @@ const changePetDesc = (e) => {
      user: props.user.name
    }
    
-    //'https://us-west-2.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/my_pets-dbdsd/service/pets/incoming_webhook/addnewpet'
+    
     axios
     .post(
       "https://us-west-2.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/my_pets-dbdsd/service/pets/incoming_webhook/addnewpet",
@@ -42,7 +45,7 @@ const changePetDesc = (e) => {
     .then((response) => {
       alert('Sucess, check the home page for your post.')
     });
-   
+   setTimeout(function(){ window.location.replace("https://quizzical-agnesi-02d509.netlify.app/"); }, 2000);
   }
   return (
     
@@ -71,7 +74,7 @@ const changePetDesc = (e) => {
           required
         ></input>
         <br />
-        <label >An image of your pet <br /> Please make sure the URL points directly to the image, otherwise the image will not work. <br />(this can be tested by pasting the URL in the browser) </label> <br />
+        <label >An image of your pet <br /> Please make sure the URL points directly to the image, otherwise the image will not work.  </label> <br />
         <input
           placeholder="image URL"
           className="submitInput"
@@ -79,6 +82,13 @@ const changePetDesc = (e) => {
           onChange={changePetImage}
           required
         ></input>
+        {petImage ? (
+          <p>Image preview: 
+            <br />
+            <img src={petImage} width="250px" height="300px" className="img-fluid" alt="if you see this, check your URL"></img>
+          </p>
+        ):
+      <p></p>}
 
         <br />
         <label >A fun fact about your pet</label> <br />
