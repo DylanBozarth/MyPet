@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import ImageGallery from 'react-image-gallery';
 import axios from "axios";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
 const RestaurantsList = (props) => {
   const [pets, setPets] = useState([]);
 
@@ -34,20 +35,7 @@ const RestaurantsList = (props) => {
     // .then(() => console.log('all good'))
    
   };
-  const images = [
-    {
-      original: 'https://picsum.photos/id/1018/1000/600/',
-      thumbnail: 'https://picsum.photos/id/1018/250/150/',
-    },
-    {
-      original: 'https://picsum.photos/id/1015/1000/600/',
-      thumbnail: 'https://picsum.photos/id/1015/250/150/',
-    },
-    {
-      original: 'https://picsum.photos/id/1019/1000/600/',
-      thumbnail: 'https://picsum.photos/id/1019/250/150/',
-    },
-  ];
+
 
   if (pets && props.user) {
     return (
@@ -92,14 +80,29 @@ const RestaurantsList = (props) => {
   } else if (pets) {
     return (
       // NOT LOGGED IN
-      <div className="gallery container">
+      <div className="gallery container-fluid">
         <div className="row ">
-          {pets.map((pets) => {
-            return (
-              <ImageGallery items={images} />
+       
+            <Carousel>
+            <div>
+                    <img src="assets/1.jpeg" />
+                    <p className="legend">Legend 1</p>
+                </div>
+                <div>
+                    <img src="assets/2.jpeg" />
+                    <p className="legend">Legend 2</p>
+                </div>
+                <div>
+                    <img src="assets/3.jpeg" />
+                    <p className="legend">Legend 3</p>
+                </div>
+                
+        </Carousel>
+        
+             
               
-            );
-          })}
+          
+        
         </div>
       </div>
     );
