@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import ImageGallery from 'react-image-gallery';
 import axios from "axios";
 const RestaurantsList = (props) => {
   const [pets, setPets] = useState([]);
@@ -32,8 +32,22 @@ const RestaurantsList = (props) => {
 
     //axios.delete('https://reqres.in/api/posts/1')
     // .then(() => console.log('all good'))
-    console.log(_id);
+   
   };
+  const images = [
+    {
+      original: 'https://picsum.photos/id/1018/1000/600/',
+      thumbnail: 'https://picsum.photos/id/1018/250/150/',
+    },
+    {
+      original: 'https://picsum.photos/id/1015/1000/600/',
+      thumbnail: 'https://picsum.photos/id/1015/250/150/',
+    },
+    {
+      original: 'https://picsum.photos/id/1019/1000/600/',
+      thumbnail: 'https://picsum.photos/id/1019/250/150/',
+    },
+  ];
 
   if (pets && props.user) {
     return (
@@ -82,24 +96,8 @@ const RestaurantsList = (props) => {
         <div className="row ">
           {pets.map((pets) => {
             return (
-              <div className="col-sm-4 gallery-item  text-center">
-                <div className="" key={pets.user}>
-                  <div className="">
-                    <h3 className="gallery-text">{pets.pet}</h3>
-                    <h4 className="gallery-text">{pets.breed}</h4>
-                    <p className="gallery-text">
-                      submitted by: {pets.user}
-                    </p>{" "}
-                    <img
-                      src={pets.image}
-                      className=" img-fluid gallery-image"
-                      alt={pets.pet}
-                    ></img>
-                    <p className="gallery-text">Fun fact about {pets.pet}:</p>
-                    <p className="gallery-text">{pets.desc}</p>
-                  </div>
-                </div>
-              </div>
+              <ImageGallery items={images} />
+              
             );
           })}
         </div>
