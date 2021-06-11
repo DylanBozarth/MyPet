@@ -1,14 +1,19 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
+import { gsap } from "gsap";
 const RestaurantsList = (props) => {
   const [pets, setPets] = useState([]);
 
   useEffect(() => {
     getPetInfo();
+   setTimeout((MoveItMoveIt()), 500)
   }, []);
+const MoveItMoveIt = () => {
+   gsap.from('.gallery-item', { delay: .2,  duration: 3, y: 110, ease: "elastic(1, 0.5)", stagger: '0.4'})
+}
 
+    
   async function getPetInfo() {
     const response = await fetch(
       "https://us-west-2.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/my_pets-dbdsd/service/pets/incoming_webhook/petswebhook"
@@ -80,7 +85,7 @@ const RestaurantsList = (props) => {
   } else if (pets) {
     return (
       // NOT LOGGED IN
-      <div className="gallery container-fluid">
+      <div className="gallery container">
         <div className="row ">
         {pets.map((pets) => {
             return (
