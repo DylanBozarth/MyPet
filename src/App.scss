@@ -45,14 +45,13 @@ body {
 }
 
 .header {
-  border: solid 2px $forth;
-  position: fixed;
+  
+  
   right: 0;
-  top: 0;
+  bottom: 0;
   left: 0;
   width: 100%;
-  background-color: $third;
-  margin-bottom: 10vh;
+ 
   z-index: -1;
   font-weight: bolder;
   font-size: 5vh;
@@ -64,7 +63,7 @@ body {
   text-align: right;
 }
 .login {
-  margin-top: 15vh;
+  margin-top: 10vh;
   color: $fifth;
   font-weight: bolder;
 }
@@ -87,16 +86,18 @@ body {
 
 // gallery
 
-.container {
-  margin-bottom: 25vh;
+body::-webkit-scrollbar {
+  display: none;
+  
+
 }
 .gallery {
 
  
   padding: 0 1rem 2rem;
-  margin-top: 2vh;
+  
   /* Compensate for excess margin on outer gallery flex items */
- 
+ margin-bottom: 10rem;
 }
 .gallery-text {
   font-family: 'Baloo Tammudu 2', cursive;
@@ -107,7 +108,7 @@ body {
   /* Minimum width of 24rem and grow to fit available space */
   background-color: $second;
   border: solid 2.3px $third;
-  margin-top: 5rem;
+  margin-top: 1rem;
   box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
   overflow: hidden;
 }

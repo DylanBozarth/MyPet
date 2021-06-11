@@ -25,7 +25,7 @@ function App() {
     <div className="container-fluid">
       
      
-      <div className="header text-center">My pet</div>
+     
         <Switch>
           <Route
             exact
@@ -53,10 +53,10 @@ function App() {
       
       <div className="navbar row">
         <div className="col-lg-4 nav-text nav-item ">
-          <Link to ="/" className="nav-text">Home</Link>
+          <Link to="/submit" className="nav-text">Submit your own</Link>
         </div>
         <div className="col-lg-4 nav-text nav-item">
-          <Link to="/submit" className="nav-text">Submit your own</Link>
+         <Link to="/" className="header nav-text">My pet</Link>
         </div>
         <div className="col-lg-4 nav-text nav-item">
         {(user ? <div  onClick={() => logout()}>Logout</div> : <Link to="/login" className="nav-text">Login</Link>)}

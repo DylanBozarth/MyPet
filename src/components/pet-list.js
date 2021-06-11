@@ -82,25 +82,28 @@ const RestaurantsList = (props) => {
       // NOT LOGGED IN
       <div className="gallery container-fluid">
         <div className="row ">
-       
-            <Carousel>
-            <div>
-                    <img src="assets/1.jpeg" />
-                    <p className="legend">Legend 1</p>
+        {pets.map((pets) => {
+            return (
+              <div className="col-sm-4 gallery-item  text-center">
+                <div className="" key={pets.user}>
+                  <div className="">
+                    <h3 className="gallery-text">{pets.pet}</h3>
+                    <h4 className="gallery-text">{pets.breed}</h4>
+                    <p className="gallery-text">
+                      submitted by: {pets.user}
+                    </p>{" "}
+                    <img
+                      src={pets.image}
+                      className=" img-fluid gallery-image"
+                      alt={pets.pet}
+                    ></img>
+                    <p className="gallery-text">Fun fact about {pets.pet}:</p>
+                    <p className="gallery-text">{pets.desc}</p>
+                  </div>
                 </div>
-                <div>
-                    <img src="assets/2.jpeg" />
-                    <p className="legend">Legend 2</p>
-                </div>
-                <div>
-                    <img src="assets/3.jpeg" />
-                    <p className="legend">Legend 3</p>
-                </div>
-                
-        </Carousel>
-        
-             
-              
+              </div>
+            );
+          })}
           
         
         </div>
