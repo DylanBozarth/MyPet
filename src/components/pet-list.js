@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-
 import axios from "axios";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
 const RestaurantsList = (props) => {
   const [pets, setPets] = useState([]);
 
@@ -32,8 +33,9 @@ const RestaurantsList = (props) => {
 
     //axios.delete('https://reqres.in/api/posts/1')
     // .then(() => console.log('all good'))
-    console.log(_id);
+   
   };
+
 
   if (pets && props.user) {
     return (
@@ -78,9 +80,9 @@ const RestaurantsList = (props) => {
   } else if (pets) {
     return (
       // NOT LOGGED IN
-      <div className="gallery container">
+      <div className="gallery container-fluid">
         <div className="row ">
-          {pets.map((pets) => {
+        {pets.map((pets) => {
             return (
               <div className="col-sm-4 gallery-item  text-center">
                 <div className="" key={pets.user}>
@@ -102,6 +104,8 @@ const RestaurantsList = (props) => {
               </div>
             );
           })}
+          
+        
         </div>
       </div>
     );
