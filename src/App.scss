@@ -138,11 +138,12 @@ $bounce-color: $forth;
 // flip cards 
 .flip {
   position: relative;
+
   >.front,
   >.back {
       display: block;
       transition-timing-function: cubic-bezier(.175, .885, .32, 1.275);
-      transition-duration: 1.3s;
+      transition-duration: 2s;
       transition-property: transform, opacity;
   }
   >.front {
@@ -166,19 +167,8 @@ $bounce-color: $forth;
           transform: rotateY(0deg);
       }
   }
-  &.flip-vertical {
-      >.back {
-          transform: rotateX(-180deg);
-      }
-      &:hover {
-          >.front {
-              transform: rotateX(180deg);
-          }
-          >.back {
-              transform: rotateX(0deg);
-          }
-      }
-  }
+
+  
 }
 
 // custom
@@ -192,12 +182,12 @@ $bounce-color: $forth;
   >.back {
     display: block;
     color: white;
-    width: inherit;
+    width: 105%;
     background-size: cover!important;
     background-position: center!important;
     height: 220px;
     padding: 1em 2em;
-    background: #313131;
+    background: $forth;
     border-radius: 10px;
     p {
       font-size: 0.9125rem;
