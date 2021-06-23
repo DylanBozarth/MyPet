@@ -71,7 +71,7 @@ const RestaurantsList = (props) => {
                       Delete{" "}
                     </button>
                   ) : (
-                    <p className="gallery-text">submitted by: {pets.user}  <br /><p className="gallery-text">submitted by: {pets.user}</p></p>
+                    <p className="gallery-text">submitted by: {pets.user}  </p>
                   )}
                   <p>{pets.desc}</p>
                 </div>
