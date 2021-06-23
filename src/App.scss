@@ -92,46 +92,13 @@ body::-webkit-scrollbar {
 
 }
 .gallery {
-
- 
-  padding: 0 1rem 2rem;
-  
-  /* Compensate for excess margin on outer gallery flex items */
- margin-bottom: 10rem;
+  padding: 1rem;
+  margin-bottom: 20rem;
 }
 .gallery-text {
   font-family: 'Baloo Tammudu 2', cursive;
   font-weight: bold;
  padding: .5rem;
-}
-.gallery-item {
-  /* Minimum width of 24rem and grow to fit available space */
-  background-color: $second;
-  border: solid 2.3px $third;
-  margin-top: 1rem;
-  box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
-  overflow: hidden;
-}
-$bounce-color: $forth;
-.gallery-image {
-  border-radius: 70%;
-  object-fit:cover;
-     width:300px;
-     height:300px;
-  margin-bottom: 1em;
-  background-color: $forth ;
-				box-shadow: 0 0 0 9px $forth ;
-        &:hover {
-				
-					animation:bounceOut .4s linear;
-				}
-}
-@keyframes bounceOut {
-  0%{ box-shadow: 0 0 0 6px $forth; opacity:1;}
-  25%{ box-shadow: 0 0 0 2px $forth; opacity:1;}
-  50%{ box-shadow: 0 0 0 9px $forth; opacity:1; }
-  75%{ box-shadow: 0 0 0 4px $forth; opacity:1;}
-  100%{ box-shadow: 0 0 0 6px $forth; opacity:1;}
 }
 
 
@@ -192,7 +159,7 @@ $bounce-color: $forth;
     p {
       font-size: 0.9125rem;
       line-height: 160%;
-      color: #999;
+      color: white;
     }
   }
 }

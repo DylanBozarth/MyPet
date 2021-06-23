@@ -52,7 +52,7 @@ const RestaurantsList = (props) => {
         <div className="row">
           {pets.map((pets) => {
             return (
-              <div class="flip">
+              <div class="flip col-sm-4">
                 <div
                   class="front"
                   style={{ backgroundImage: `url(${pets.image})` }}
@@ -71,7 +71,7 @@ const RestaurantsList = (props) => {
                       Delete{" "}
                     </button>
                   ) : (
-                    <p className="gallery-text">submitted by: {pets.user}</p>
+                    <p className="gallery-text">submitted by: {pets.user}  <br /><p className="gallery-text">submitted by: {pets.user}</p></p>
                   )}
                   <p>{pets.desc}</p>
                 </div>
@@ -88,7 +88,7 @@ const RestaurantsList = (props) => {
         <div className="row ">
           {pets.map((pets) => {
             return (
-              <div class="flip">
+              <div class="flip col-sm-4">
                 <div
                   class="front"
                   style={{ backgroundImage: `url(${pets.image})` }}
@@ -100,6 +100,7 @@ const RestaurantsList = (props) => {
                     {pets.pet}, {pets.breed}
                   </h2>
                   <p>{pets.desc}</p>
+                  <br /><p className="gallery-text">submitted by: {pets.user}</p>
                 </div>
               </div>
             );
