@@ -96,12 +96,12 @@ const RestaurantsList = (props) => {
         {pets.map((pets) => {
             return (
               <div class="flip">
-              <div class="front" style={{backgroundImage: `url${pets.image}`}}>
-       <h1 class="text-shadow">MOUNTAIN</h1>
+              <div class="front" style={{backgroundImage: `url(${pets.image})`}}>
+       <h1 class="text-shadow">{pets.pet}</h1>
     </div>
     <div class="back">
-       <h2>Angular</h2>
-       <p>Good tools make application development quicker and easier to maintain than if you did everything by hand..</p>
+       <h2>{pets.pet}, {pets.breed}</h2>
+       <p>{pets.desc}</p>
     </div>
 </div>
             );
