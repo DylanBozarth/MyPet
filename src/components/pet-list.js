@@ -53,7 +53,7 @@ const RestaurantsList = (props) => {
     return (
       // USER IS LOGGED IN
 
-      <div className="container ">
+      <div className="gallery container ">
         <div className="row">
           {pets.map((pets) => {
             return (

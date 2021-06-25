@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Alert } from "bootstrap";
 
 export const Submit = (props) => {
   const [petName, setPetName] = useState("");
   const [petBreed, setPetBreed] = useState("");
   const [petImage, setPetImage] = useState("");
   const [petDesc, setPetDesc] = useState('');
-  
+ 
   useEffect(() => {
 
   })
@@ -43,9 +44,17 @@ const changePetDesc = (e) => {
       data
     )
     .then((response) => {
-      alert('Sucess, check the home page for your post.')
+      alert('Success! Redirecting you to the homepage now.')
     });
    setTimeout(function(){ window.location.replace("https://quizzical-agnesi-02d509.netlify.app/"); }, 2000);
+  }
+  const PreventSubmission = () => {
+    if (Error) {
+      alert('Invalid image URL, please use another.')
+    let submitButton = document.getElementById('submit')
+    submitButton.classList.add('hidden')
+    }
+   
   }
   return (
     
@@ -85,7 +94,7 @@ const changePetDesc = (e) => {
         {petImage ? (
           <p>Image preview: 
             <br />
-            <img src={petImage} width="250px" height="300px" className="img-fluid" alt="if you see this, check your URL"></img>
+            <img src={petImage} onError={() => PreventSubmission()} width="250px" height="300px" className="img-fluid" alt="if you see this, check your URL"></img>
           </p>
         ):
       <p></p>}
@@ -100,7 +109,7 @@ const changePetDesc = (e) => {
           required
         ></input>
         <br />
-        <button>Submit</button>
+        <button id="submit">Submit</button>
       </form>
      <div className="submittext">Privacy Notice: <br /> By adding your pet's photo to this website you henceforth revoke all rights in preventing me from petting your pet and referring to them as a good boy/girl. <br /> That is all. </div>
     <div className="col-sm-2"></div></div> :
