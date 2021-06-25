@@ -7,6 +7,12 @@ const RestaurantsList = (props) => {
   useEffect(() => {
     getPetInfo();
   }, []);
+  useEffect(() => {
+    if (pets) {
+      MoveItMoveIt();
+    }
+    
+  }, [pets]);
 
   async function getPetInfo() {
     const response = await fetch(
@@ -15,12 +21,11 @@ const RestaurantsList = (props) => {
     const json = await response.json();
     console.log(json);
     setPets(json.pets);
-    MoveItMoveIt();
+    
   }
   const MoveItMoveIt = () => {
-    const box = document.getElementsByClassName(".gallery-item");
-
-    gsap.from(".gallery-item", {
+    
+    gsap.from(".flip", {
       delay: 0.4,
       duration: 3,
       y: 110,
