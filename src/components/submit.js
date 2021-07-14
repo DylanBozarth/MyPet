@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Alert } from "bootstrap";
 
 export const Submit = (props) => {
-  const [petName, setPetName] = useState("");
-  const [petBreed, setPetBreed] = useState("");
-  const [petImage, setPetImage] = useState("");
-  const [petDesc, setPetDesc] = useState('');
- 
-  useEffect(() => {
-
-  })
+  const [petName, setPetName] = useState(null);
+  const [petBreed, setPetBreed] = useState(null);
+  const [petImage, setPetImage] = useState(null);
+  const [petDesc, setPetDesc] = useState(null);
+ const [filledOut, setFilledOut] = useState(false)
+ let checkArray = [petName, petBreed, petImage, petDesc]
   const changePetName = (e) => {
     const searchName = e.target.value;
     setPetName(searchName);
@@ -28,7 +25,8 @@ const changePetDesc = (e) => {
     setPetImage(imagestuff);
   };
   const submitPet = (e) => {
-    e.preventDefault();
+    if (checkArray.length === 4) {
+      e.preventDefault();
    let data = {
      pet: petName,
      breed: petBreed,
@@ -47,6 +45,10 @@ const changePetDesc = (e) => {
       alert('Success! Redirecting you to the homepage now.')
     });
    setTimeout(function(){ window.location.replace("https://quizzical-agnesi-02d509.netlify.app/"); }, 2000);
+    }
+    else {
+      alert ('Please fill out all information')
+    }
   }
   const PreventSubmission = () => {
     if (Error) {
@@ -109,9 +111,10 @@ const changePetDesc = (e) => {
           required
         ></input>
         <br />
-        <button id="submit">Submit</button>
+        <button id="submit" className="btn btn-success">Submit</button>
+       
       </form>
-     <div className="submittext">Privacy Notice: <br /> By adding your pet's photo to this website you henceforth revoke all rights in preventing me from petting your pet and referring to them as a good boy/girl. <br /> That is all. </div>
+     <div className="submittext">Privacy Notice:  <br /> By adding your pet's photo to this website you henceforth revoke all rights in preventing me from petting your pet and referring to them as a good boy/girl. <br /> That is all. </div>
     <div className="col-sm-2"></div></div> :
     <div className="text-center login">Please Log in first</div>}</div>
   );
