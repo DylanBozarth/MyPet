@@ -55,7 +55,7 @@ const RestaurantsList = (props) => {
 
       <div className="gallery container ">
         <div className="row">
-          {pets.map((pets) => {
+        {pets.filter((x) => x.pet ).map((pets) => {
             return (
               <div class="flip col-sm-4">
                 <div
@@ -91,7 +91,7 @@ const RestaurantsList = (props) => {
       // NOT LOGGED IN
       <div className="gallery container">
         <div className="row ">
-          {pets.map((pets) => {
+          {pets.filter((x) => x.pet ).map((pets) => {
             return (
               <div class="flip col-sm-4">
                 <div
