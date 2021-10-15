@@ -50,17 +50,28 @@ function App() {
           />
           
         </Switch>
-      
-      <div className="navbar row">
+        <div className="navbarTop row">
         <div className="col-lg-4 nav-text nav-item ">
-          <Link to="/submit" className="nav-text">Submit your own</Link>
+         
         </div>
         <div className="col-lg-4 nav-text nav-item">
          <Link to="/" className="header nav-text">My pet</Link>
         </div>
         <div className="col-lg-4 nav-text nav-item">
+        
+        </div>
+        </div>
+      <div className="navbar row">
+        <div className="col-lg-4 nav-text nav-item ">
+          <Link to="/submit" className="nav-text">Submit your own</Link>
+        </div>
+        <div className="col-lg-4 nav-text nav-item">
+         <p className="header nav-text" onClick={() => alert('Coming soon')}>Pet of the week </p>
+        </div>
+        <div className="col-lg-4 nav-text nav-item">
         {(user ? <div  onClick={() => logout()}>Logout</div> : <Link to="/login" className="nav-text">Login</Link>)}
         </div>
+        
       </div>
       
     </div>

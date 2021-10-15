@@ -10,7 +10,7 @@ const PetFocus = props => {
     reviews: []
   };
   const [pet, setPet] = useState(initialState);
-
+//THIS PAGE IS NOT USED
   const getRestaurant = id => {
    getPetsId(id)
       .then(response => {

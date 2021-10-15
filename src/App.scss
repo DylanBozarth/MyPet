@@ -28,6 +28,17 @@ body {
   background-color: $third;
   color: $text;
 }
+.navbarTop {
+  border: solid 2px $forth;
+  position: fixed;
+  right: 0;
+  top: 0;
+  left: 0;
+  width: 105%;
+  z-index:  95;
+  background-color: $third;
+  color: $text;
+}
 
 .nav-text {
   color: $text;
@@ -37,6 +48,9 @@ body {
   font-size: 3vh;
  
   font-family: 'playball', cursive;
+}
+.nav-text:hover {
+  text-decoration: none;
 }
 .nav-item {
   border: 2px solid $third;
@@ -99,6 +113,7 @@ body::-webkit-scrollbar {
 }
 .gallery {
   padding: 1rem;
+  padding-top: 8rem;
   margin-bottom: 20rem;
 }
 .gallery-text {
