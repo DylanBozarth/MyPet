@@ -7,6 +7,7 @@ import RestaurantsList from "./components/pet-list";
 import Login from "./components/login";
 import PetFocus from "./components/petfocus";
 import { Submit } from "./components/submit";
+import { PetOfTheWeek } from "./components/petoftheweek";
 
 function App() {
   const [user, setUser] = React.useState(null);
@@ -48,7 +49,10 @@ function App() {
             path="/submit"
             render={(props) => <Submit {...props} user={user} login={Submit} />}
           />
-          
+           <Route
+            path="/petoftheweek"
+            render={(props) => <PetOfTheWeek {...props} user={user} login={Submit} />}
+          />
         </Switch>
         <div className="navbarTop row">
         <div className="col-lg-4 nav-text nav-item ">
