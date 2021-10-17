@@ -53,7 +53,7 @@ const RestaurantsList = (props) => {
     return (
       // USER IS LOGGED IN
 
-      <div className="gallery container ">
+      <div className="gallery container-fluid ">
         <div className="row">
         {pets.filter((x) => x.pet ).map((pets) => {
             return (
@@ -89,7 +89,7 @@ const RestaurantsList = (props) => {
   } else if (pets) {
     return (
       // NOT LOGGED IN
-      <div className="gallery container">
+      <div className="gallery container-fluid">
         <div className="row ">
           {pets.filter((x) => x.pet ).map((pets) => {
             return (
