@@ -7,8 +7,7 @@ export const PetOfTheWeek = () => {
 
     useEffect(() => {
       getPetInfo()
-      let petsLength = pets.length
-      console.log(petsLength)
+      
     }, [])
   
     async function getPetInfo() {
@@ -17,6 +16,10 @@ export const PetOfTheWeek = () => {
       );
       const json = await response.json();
       setPets(json.pets);
+      
+    }
+    const selectPet = () => {
+      let petLength = pets.length
       
     }
     if (pets) {
