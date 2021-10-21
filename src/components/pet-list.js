@@ -48,31 +48,7 @@ const [image, setImage] = useState()
     //axios.delete('https://reqres.in/api/posts/1')
     // .then(() => console.log('all good'))
   };
-  const uploadImage = (e) => {
-    
-    var fileIn = e.target;
-    var file = fileIn.files[0];
-    if (file && file.size < 5e6) {
-        const formData = new FormData();
-
-        formData.append("image", file);
-        fetch("https://api.imgur.com/3/image", {
-            method: "POST",
-            headers: {
-                Authorization: "Client-ID f46304c018d188d",
-                Accept: "application/json",
-            },
-            body: formData,
-        })
-            .then((response) => response.json())
-            .then((response) => {
-                e.preventDefault();
-                console.log(response);
-                console.log(response.data.link); // this is where the link is stored
-                setImage(response.data.link)
-            });
-    } 
-}
+  
   if (pets && props.user) {
     return (
       // USER IS LOGGED IN
