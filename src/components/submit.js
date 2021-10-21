@@ -86,7 +86,7 @@ export const Submit = (props) => {
       <div className="col-sm-2"></div>
       {props.user !== null ? (
         <div className="col-sm-8 submitbox ">
-          <h2 className="submittext"> Submit your own</h2>
+          <h2 className="submittext"> Submit your own pet photo</h2>
           <form onSubmit={(e) => submitPet(e)}>
             <label>Your pet's name</label> <br />
             <input
@@ -96,13 +96,25 @@ export const Submit = (props) => {
               onChange={changePetName}
               required
             ></input>
-            <br />
+           <br />
             <label>Your pet's breed</label> <br />
             <input
               placeholder="breed"
               className="submitInput"
               value={petBreed}
               onChange={changeBreedType}
+              required
+            ></input>
+            <br />
+            
+            
+            <br />
+            <label>A fun fact about your pet</label> <br />
+            <input
+              placeholder="fun fact"
+              className="submitInput"
+              value={petDesc}
+              onChange={changePetDesc}
               required
             ></input>
             <br />
@@ -116,16 +128,6 @@ export const Submit = (props) => {
               name="First image"
               className="text-center"
               onChange={(e) => uploadImage(e)}
-            ></input>
-            
-            <br />
-            <label>A fun fact about your pet</label> <br />
-            <input
-              placeholder="fun fact"
-              className="submitInput"
-              value={petDesc}
-              onChange={changePetDesc}
-              required
             ></input>
             <br />
             <button id="submit" className="btn btn-success">

@@ -51,11 +51,11 @@ useEffect(() => {
         </div>
 
 <div className="text-center">
-        <button onClick={login} className="btn btn-success text-center">
+        <button onClick={()  => initialUserState.name !== "" ? login : alert('please at least enter a name')} className="btn btn-success text-center">
           Login
         </button>
       </div></div>
-      <br /> I will totally sell your data if given the chance.
+      <br /> <h3 className="text-center">I will totally sell your data if given the chance. So please don't enter any personal information.</h3>
     </div>
     <div className="col-sm-4"></div></div>
   );
