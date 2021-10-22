@@ -51,7 +51,7 @@ useEffect(() => {
         </div>
 
 <div className="text-center">
-        <button onClick={()  => initialUserState.name !== "" ? login : alert('please at least enter a name')} className="btn btn-success text-center">
+        <button onClick={() => login()} className="btn btn-success text-center">
           Login
         </button>
       </div></div>

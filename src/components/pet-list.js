@@ -57,14 +57,14 @@ const [image, setImage] = useState()
         <div className="row">
         {pets.filter((x) => x.pet ).map((pets) => {
             return (
-              <div class="flip col-sm-4">
+              <div className="flip col-sm-4">
                 <div
-                  class="front"
+                  className="front"
                   style={{ backgroundImage: `url(${pets.image})` }}
                 >
-                  <h1 class="text-shadow">{pets.pet}</h1>
+                  <h1 className="text-shadow">{pets.pet}</h1>
                 </div>
-                <div class="back">
+                <div className="back">
                   <h2>
                     {pets.pet}, {pets.breed}
                   </h2>
@@ -93,14 +93,14 @@ const [image, setImage] = useState()
         <div className="row ">
           {pets.filter((x) => x.pet ).map((pets) => {
             return (
-              <div class="flip col-sm-4">
+              <div className="flip col-sm-4">
                 <div
-                  class="front"
+                  className="front"
                   style={{ backgroundImage: `url(${pets.image})` }}
                 >
-                  <h1 class="text-shadow">{pets.pet}</h1>
+                  <h1 className="text-shadow">{pets.pet}</h1>
                 </div>
-                <div class="back">
+                <div className="back">
                   <h2>
                     {pets.pet}, {pets.breed}
                   </h2>
