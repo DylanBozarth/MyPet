@@ -7,7 +7,6 @@ export const PetOfTheWeek = () => {
 
     useEffect(() => {
       getPetInfo()
-      selectPet()
     }, [])
   
     async function getPetInfo() {
@@ -15,18 +14,23 @@ export const PetOfTheWeek = () => {
         "https://us-west-2.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/my_pets-dbdsd/service/pets/incoming_webhook/petswebhook"
       );
       const json = await response.json();
-      setPets(json.pets);
       
-    }
-    const selectPet = () => {
-      let petLength = pets.length
+      let luckyPet = json.pets.slice(2, 3) 
+
+      setPets(luckyPet);
+      
+    
+    let randomIndex = () => {
+let petLength = pets.length
       console.log(petLength)
     }
+  }
+    
     if (pets) {
        return (
         <div className="gallery container">
         <div className="row ">
-          {pets.filter((x) => x.pet ).map((pets) => {
+         {pets.map((pets) => {
             return (
               <div className="flip col-sm-4" key={pets.name}>
                 <div
