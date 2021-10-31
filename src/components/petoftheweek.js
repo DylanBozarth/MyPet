@@ -4,6 +4,7 @@ import React, {useState, useEffect} from 'react'
 
 export const PetOfTheWeek = () => {
     const [pets, setPets] = useState([]);
+    const [randomNum, setRandomNum] = useState()
 
     useEffect(() => {
       getPetInfo()
@@ -20,10 +21,14 @@ export const PetOfTheWeek = () => {
       setPets(luckyPet);
       
     
-    let randomIndex = () => {
-let petLength = pets.length
+    let findRandomIndex = () => {
+let petLength = json.pets.length
       console.log(petLength)
+setRandomNum(Math.floor(Math.random() * petLength))
+
     }
+
+    findRandomIndex()
   }
     
     if (pets) {
@@ -32,9 +37,9 @@ let petLength = pets.length
         <div className="row ">
          {pets.map((pets) => {
             return (
-              <div className="flip col-sm-4" key={pets.name}>
+              <div className="flip col-lg-12" >
                 <div
-                  className="front"
+                  className="front" key={pets.name}
                   style={{ backgroundImage: `url(${pets.image})` }}
                 >
                   <h1 className="text-shadow">{pets.pet}</h1>
