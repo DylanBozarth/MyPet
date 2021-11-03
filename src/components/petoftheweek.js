@@ -22,6 +22,7 @@ export const PetOfTheWeek = () => {
       
     
     let findRandomIndex = () => {
+      /* find a way for this to run once a week, profit */
 let petLength = json.pets.length
       console.log(petLength)
 setRandomNum(Math.floor(Math.random() * petLength))
@@ -33,28 +34,15 @@ setRandomNum(Math.floor(Math.random() * petLength))
     
     if (pets) {
        return (
-        <div className="gallery container">
-        <div className="row ">
+        <div className="container-fluid weeklyPetBox">
+       
          {pets.map((pets) => {
             return (
-              <div className="flip col-lg-12" >
-                <div
-                  className="front" key={pets.name}
-                  style={{ backgroundImage: `url(${pets.image})` }}
-                >
-                  <h1 className="text-shadow">{pets.pet}</h1>
+              <div>
+                <img src={pets.image} alt={pets.name} />
                 </div>
-                <div className="back">
-                  <h2>
-                    {pets.pet}, {pets.breed}
-                  </h2>
-                  <p>{pets.desc}</p>
-                  <br /><p className="gallery-text">submitted by: {pets.user}</p>
-                </div>
-              </div>
             );
           })}
-        </div>
       </div>
     )
     }
