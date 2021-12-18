@@ -70,7 +70,7 @@ function App() {
           <Link to="/submit" className="nav-text">Submit your own</Link>
         </div>
         <div className="col-lg-4 nav-text nav-item">
-         <p className="header nav-text" onClick={() => alert('Coming soon')}>Pet of the week </p>
+         <p className="header nav-text" >My Pet</p>
         </div>
         <div className="col-lg-4 nav-text nav-item">
         {(user ? <div  onClick={() => logout()}>Logout</div> : <Link to="/login" className="nav-text">Login</Link>)}
